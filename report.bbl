@@ -1,0 +1,9 @@
+\begin{thebibliography}{}
+
+\bibitem[Armbrust et~al., 2010]{Armbrust:2010:VCC:1721654.1721672}
+Armbrust, M., Fox, A., Griffith, R., Joseph, A.~D., Katz, R., Konwinski, A.,
+  Lee, G., Patterson, D., Rabkin, A., Stoica, I., and Zaharia, M. (2010).
+\newblock A view of cloud computing.
+\newblock {\em Commun. ACM}, 53(4):50--58.
+
+\end{thebibliography}

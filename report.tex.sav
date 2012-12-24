@@ -51,6 +51,8 @@
 
 With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for certain topology and services specifically.
 
+Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. 
+
 \begin{figure}[!htp]
 \centerline{
     \subfloat[Provisioning for peak load]{
@@ -70,31 +72,7 @@ With the increasing demand of traffic loads and user requirements, it is a great
 \label{provisioning}
 \end{figure}
 
-Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. So we can employ flexible capacity and dynamic demand respond to address these problems as shown in Figure \ref{under_wireless}, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve the efficiency of performance/cost.
-
-\begin{enumerate}
-  \item Topology Control:
-  \begin{enumerate}
-    \item Conflict Graph: Propagation table and capacity matrix for wireless links
-    \item Topology Graph: 
-    \item Capacity Graph: wired (10G) and wireless (1/2/6G) capacity
-    \item Traffic Graph:
-  \end{enumerate}
-  \item Addressing:
-  \begin{enumerate}
-    \item Location-specific IP Addresses (LAs): providing distance information for 3D Beamforming
-    \item Application-specific IP Addresses (AAs): providing traffic information for Demand Response
-    \item Mapping of AAs to LAs: providing mapping table for Capacity Scheduling
-  \end{enumerate}
-  \item Capacity Scheduling: 
-  \begin{enumerate}
-    \item 3D Beamforming: 
-    \item Demand Response: 
-    \item 
-  \end{enumerate}
-\end{enumerate}
-
-wireless data centers: making data centers flexible, i.e., using topology control to make resource allocation responding to traffic patterns and requirements.
+wireless data centers: making data centers flexible, i.e., using topology control to make resource allocation responding to traffic patterns and requirements \cite{Armbrust:2010:VCC:1721654.1721672}.
 \begin{itemize}
   \item graph mapping: topology changes due to errors or wireless links.
   \item demand response: topology and capacity (wired and wireless) are stable for certain graphs, so the problem is demand estimation.

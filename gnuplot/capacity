@@ -1,0 +1,49 @@
+reset
+set term pdf enhanced
+set output 'capacity.pdf'
+
+#test
+f(x) = 1
+g(x) = 0.6
+h(x) = 0.8
+
+unset key
+
+set xtics 4 font ',10'
+unset ytics
+set xrange [0:16]
+set yrange [0:1.2]
+set xlabel 'Time (days)' font ',12'
+set ylabel 'Resources' font ',12'
+set bmargin 3.6
+#set rmargin 4
+set label 1 "Capacity" at 0.2,1.1 font ',8'
+set label 2 "Demand" at 0.2,0.5 font ',8'
+
+set style fill solid 0.4
+plot (sin(x)+1)/2 w filledcurves below y1=1 lw 6 lc rgb "blue",f(x) lw 8 lc rgb "black"
+
+set output
+
+set output 'capacity1.pdf'
+
+unset label
+set label 1 "Capacity" at 0.2,0.5 font ',8'
+set label 2 "Demand" at 0.2,1.1 font ',8'
+plot (sin(x)+1)/2 w filledcurves above y1=0.6 lw 6 lc rgb "blue",g(x) lw 8 lc rgb "black"
+
+set output
+
+set output 'capacity2.pdf'
+
+set style fill solid 0.2
+unset label
+set label 1 "Base-Capacity" at 2.9,0.9 font ',8' front
+set label 2 "Demand" at 0.2,1.1 font ',8'
+set label 3 "Wireless Linking" at 8,1.1 font ',8' front
+set label 4 "Sleeping off" at 6,0.2 font ',8'
+set arrow from 9,1.05 to 8,0.9 head ls 9 lt 9 lw 8 front
+set arrow from 7,0.25 to 5,0.3 head ls 9 lt 9 lw 8 front
+plot (sin(x)+1)/2 w filledcurves y1=0.8 lw 6 lc rgb "blue",h(x) lt 0 lw 8 lc rgb "black"
+
+set output
