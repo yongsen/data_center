@@ -33,7 +33,7 @@
 %}
 %\makeatother% resets the meaning of the at-sign (@)
 
-\title{Report on Data Center}
+\title{Report on Data Centers}
 \author{\IEEEauthorblockN{Yongsen MA}
 %\IEEEauthorblockA{mayongsen@gmail.com, http://yongsen.github.com}
 }
@@ -43,6 +43,22 @@
 
 \maketitle% prints the title block
 %\onehalfspacing
+
+wireless data center: making data centers flexible, i.e., using topology control and resource allocation by wireless links to response to traffic patterns and requirements.
+\begin{itemize}
+  \item graph mapping: topology changes due to errors or wireless links.
+  \item demand response: topology and capacity (wired and wireless) are stable for certain graphs, so the problem is demand estimation.
+\end{itemize}
+So how to allocate wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), to deal with the problem of demand response when topology graphs are changing.  Topology changes may occur due to errors, sleeping mechanism or wireless links.
+
+reasons for compress sensing:
+\begin{enumerate}
+  \item topology graphs are \textbf{large}: the requirement for compress sensing to reduce mapping overhead
+  \item wireless propagation and traffic demand measurement is challenging: requirements
+  \item topology graphs are \textbf{sparse}: the prior condition for compress sensing
+  \item topology graphs have \textbf{local changes} (errors, on-off or wireless) in real-time operating: conditions
+\end{enumerate}
+
 
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
 
