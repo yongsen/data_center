@@ -43,7 +43,7 @@ set label 2 "Demand" at 0.2,1.1 font ',8'
 set label 3 "Wireless Linking" at 8,1.1 font ',8' front
 set label 4 "Sleeping off" at 6,0.2 font ',8'
 set arrow from 9,1.05 to 8,0.9 head ls 9 lt 9 lw 8 front
-set arrow from 7,0.25 to 5,0.4 head ls 9 lt 9 lw 8 front
+set arrow from 7,0.25 to 5,0.3 head ls 9 lt 9 lw 8 front
 plot (sin(x)+1)/2 w filledcurves y1=0.8 lw 6 lc rgb "blue",h(x) lt 0 lw 8 lc rgb "black"
 
 set output

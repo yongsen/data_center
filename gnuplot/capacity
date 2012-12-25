@@ -12,8 +12,8 @@ unset key
 set xtics 4 font ',10'
 unset ytics
 set xrange [0:16]
-set yrange [0:1.2]
-set xlabel 'Time (days)' font ',12'
+set yrange [-0.2:1.2]
+set xlabel 'Time (hours)' font ',12'
 set ylabel 'Resources' font ',12'
 set bmargin 3.6
 #set rmargin 4
