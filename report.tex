@@ -145,6 +145,7 @@ reasons for compress sensing:
 
 \section{Evaluation}
 
+\section{Literature Review}
 
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
 
@@ -220,6 +221,10 @@ Data center traffic analysis:
 \textbf{"DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers", SIGCOMM 2008}
 
 \textbf{"A Scalable, Commodity Data Center Network Architecture", SIGCOMM 2008}
+
+Topology: k pods, two layers of k/2 switches, each k-port switch connected to k/2 hosts, each remaining k/2 ports connected to k/2 of the k ports in the aggregation layer of the hierarchy. Max $48\cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts for 48-port GigE switches.
+
+Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
 
 Wireless
 
