@@ -49,7 +49,7 @@
 
 \section{Motivation}
 
-With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for certain topology and services specifically.
+With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for the specific feature of topology and services.
 
 \begin{figure}[!htp]
 \centerline{
@@ -70,29 +70,59 @@ With the increasing demand of traffic loads and user requirements, it is a great
 \label{provisioning}
 \end{figure}
 
-Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. So we can employ flexible capacity and dynamic demand respond to address these problems as shown in Figure \ref{under_wireless}, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve the efficiency of performance/cost.
+Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
 
+The flexible data centers are generally composed of:
 \begin{enumerate}
   \item Topology Control:
   \begin{enumerate}
-    \item Conflict Graph: Propagation table and capacity matrix for wireless links
-    \item Topology Graph: 
-    \item Capacity Graph: wired (10G) and wireless (1/2/6G) capacity
-    \item Traffic Graph:
+    \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
+    \item Topology Graph: Physical-specific ID Addresses (PAs), Location-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
   \end{enumerate}
   \item Addressing:
   \begin{enumerate}
-    \item Location-specific IP Addresses (LAs): providing distance information for 3D Beamforming
-    \item Application-specific IP Addresses (AAs): providing traffic information for Demand Response
-    \item Mapping of AAs to LAs: providing mapping table for Capacity Scheduling
+    \item PAs: providing device information for Topology Control
+    \item LAs: providing distance information for 3D Beamforming
+    \item AAs: providing traffic information for Demand Response
   \end{enumerate}
-  \item Capacity Scheduling: 
+  \item Capacity Scheduling:
   \begin{enumerate}
-    \item 3D Beamforming: 
-    \item Demand Response: 
-    \item 
+    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to LAs
+    \item Demand Response: traffic estimation according to AAs
+    \item Link Adaption: capacity scheduling according to Conflict Graph and Topology Graph
   \end{enumerate}
 \end{enumerate}
+
+\section{Methodology}
+
+\subsection{Measurement}
+
+Measurement:
+\begin{itemize}
+  \item Propagation table
+  \item Capacity matrix
+  \item Traffic loads
+\end{itemize}
+
+Topology changes:
+\begin{itemize}
+  \item Errors: nodes, links, miswiring
+  \item wireless linking
+  \item Sleeping on-off
+\end{itemize}
+
+Mapping:
+\begin{itemize}
+  \item PA to LA (Beamforming)
+  \item LA to AA (Traffic estimation)
+\end{itemize}
+
+Connections:
+\begin{itemize}
+  \item wired 10G
+  \item wireless direct 6G
+  \item wireless indirect 1/2G
+\end{itemize}
 
 wireless data centers: making data centers flexible, i.e., using topology control to make resource allocation responding to traffic patterns and requirements.
 \begin{itemize}
@@ -101,8 +131,6 @@ wireless data centers: making data centers flexible, i.e., using topology contro
 \end{itemize}
 So how to allocate wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), to deal with the problem of demand response when topology graphs are changing. Topology changes may occur due to errors, sleeping mechanism or wireless links.
 
-\section{Methodology}
-
 reasons for compress sensing:
 \begin{enumerate}
   \item topology graphs are \textbf{large}: the requirement for compress sensing to reduce mapping overhead
@@ -110,6 +138,10 @@ reasons for compress sensing:
   \item topology graphs are \textbf{sparse}: the prior condition for compress sensing
   \item topology graphs have \textbf{local changes} (errors, on-off or wireless) in real-time operating: conditions
 \end{enumerate}
+
+\subsection{Mapping}
+
+\subsection{Scheduling}
 
 \section{Evaluation}
 
@@ -150,6 +182,35 @@ Architecture
 
 \textbf{"VL2: A Scalable and Flexible Data Center Network", SIGCOMM 2009}
 
+1. Background:
+\begin{itemize}
+  \item Limited server-to-server capacity: over-subscription ratio increases rapidly
+  \item Fragmentation of resources: high turnaround time for reconfiguration
+  \item Poor reliability and utilization: multiple paths waste at most 50\% of maximum utilization
+\end{itemize}
+
+2. Measurement:
+\begin{itemize}
+  \item Flow: VLB will perform well on this traffic
+  \begin{itemize}
+    \item Distribution of flow sizes: majority of flows are small
+    \item Number of concurrent flows: 10 concurrent flows at more than 50\% of the time, 80 concurrent flows at least 5\% of the time
+  \end{itemize}
+  \item Traffic: it is unlikely that other routing strategies will outperform VLB
+  \begin{itemize}
+    \item Poor summarizability of traffic patterns
+    \item Instability of traffic patterns
+  \end{itemize}
+  \item Failure
+\end{itemize}
+
+3. Solution: Virtual Layer 2 Networking
+\begin{itemize}
+  \item Topology: $D_I$ Int. Switches and $D_A$ Agg. Switches
+  \item Addressing: Location-specific IP Addresses and Application-specific IP Addresses
+  \item Directory: lookups and updates of AA-to-LA mapping, reactive cache update
+\end{itemize}
+
 Data center traffic analysis:
 \begin{itemize}
   \item arrive intervals.
@@ -183,6 +244,7 @@ Wireless Data Center is a new concept which should be explored further. Many iss
   \end{enumerate}
 \end{enumerate}
 
+Problem:
 \begin{enumerate}
   \item Apart from the concurrent links, the efficient throughput should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance as shown in Figure 5.
   \item
