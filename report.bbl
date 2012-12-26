@@ -1,9 +1,73 @@
 \begin{thebibliography}{}
 
+\bibitem[Al-Fares et~al., 2008]{Al-Fares:2008:SCD:1402958.1402967}
+Al-Fares, M., Loukissas, A., and Vahdat, A. (2008).
+\newblock A scalable, commodity data center network architecture.
+\newblock ACM SIGCOMM '08.
+
 \bibitem[Armbrust et~al., 2010]{Armbrust:2010:VCC:1721654.1721672}
 Armbrust, M., Fox, A., Griffith, R., Joseph, A.~D., Katz, R., Konwinski, A.,
   Lee, G., Patterson, D., Rabkin, A., Stoica, I., and Zaharia, M. (2010).
 \newblock A view of cloud computing.
 \newblock {\em Commun. ACM}, 53(4):50--58.
+
+\bibitem[Chen et~al., 2010]{Chen:2010:GAA:1851182.1851190}
+Chen, K., Guo, C., Wu, H., Yuan, J., Feng, Z., Chen, Y., Lu, S., and Wu, W.
+  (2010).
+\newblock Generic and automatic address configuration for data center networks.
+\newblock ACM SIGCOMM '10.
+
+\bibitem[Chen et~al., 2012]{chen2012osa}
+Chen, K., Singla, A., Singh, A., Ramachandran, K., Xu, L., Zhang, Y., Wen, X.,
+  and Chen, Y. (2012).
+\newblock {OSA}: An optical switching architecture for data center networks
+  with unprecedented flexibility.
+\newblock USENIX NSDI '12.
+
+\bibitem[Farrington et~al., 2010]{Farrington:2010:HHE:1851182.1851223}
+Farrington, N., Porter, G., Radhakrishnan, S., Bazzaz, H.~H., Subramanya, V.,
+  Fainman, Y., Papen, G., and Vahdat, A. (2010).
+\newblock Helios: a hybrid electrical/optical switch architecture for modular
+  data centers.
+\newblock In {\em Proceedings of the ACM SIGCOMM 2010 conference}, ACM SIGCOMM
+  '10.
+
+\bibitem[Greenberg et~al., 2009]{Greenberg:2009:VSF:1592568.1592576}
+Greenberg, A., Hamilton, J.~R., Jain, N., Kandula, S., Kim, C., Lahiri, P.,
+  Maltz, D.~A., Patel, P., and Sengupta, S. (2009).
+\newblock {VL2}: a scalable and flexible data center network.
+\newblock ACM SIGCOMM '09.
+
+\bibitem[Guo et~al., 2009]{Guo:2009:BHP:1592568.1592577}
+Guo, C., Lu, G., Li, D., Wu, H., Zhang, X., Shi, Y., Tian, C., Zhang, Y., and
+  Lu, S. (2009).
+\newblock {BCube}: a high performance, server-centric network architecture for
+  modular data centers.
+\newblock ACM SIGCOMM '09.
+
+\bibitem[Guo et~al., 2008]{Guo:2008:DSF:1402958.1402968}
+Guo, C., Wu, H., Tan, K., Shi, L., Zhang, Y., and Lu, S. (2008).
+\newblock {DCell}: a scalable and fault-tolerant network structure for data
+  centers.
+\newblock ACM SIGCOMM '08.
+
+\bibitem[Halperin et~al., 2011]{Halperin:2011:ADC:2018436.2018442}
+Halperin, D., Kandula, S., Padhye, J., Bahl, P., and Wetherall, D. (2011).
+\newblock Augmenting data center networks with multi-gigabit wireless links.
+\newblock ACM SIGCOMM '11.
+
+\bibitem[Wang et~al., 2010]{Wang:2010:CPO:1851182.1851222}
+Wang, G., Andersen, D.~G., Kaminsky, M., Papagiannaki, K., Ng, T.~E., Kozuch,
+  M., and Ryan, M. (2010).
+\newblock {c-Through}: part-time optics in data centers.
+\newblock In {\em Proceedings of the ACM SIGCOMM 2010 conference}, ACM SIGCOMM
+  '10.
+
+\bibitem[Zhou et~al., 2012]{Zhou:2012:MMC:2342356.2342440}
+Zhou, X., Zhang, Z., Zhu, Y., Li, Y., Kumar, S., Vahdat, A., Zhao, B.~Y., and
+  Zheng, H. (2012).
+\newblock Mirror mirror on the ceiling: flexible wireless links for data
+  centers.
+\newblock ACM SIGCOMM '12.
 
 \end{thebibliography}

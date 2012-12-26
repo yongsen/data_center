@@ -49,9 +49,7 @@
 
 \section{Motivation}
 
-With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for certain topology and services specifically.
-
-Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. 
+With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for the specific feature of topology and services.
 
 \begin{figure}[!htp]
 \centerline{
@@ -72,14 +70,67 @@ Generally, the capacity of data centers is designed for peak loads, as shown in 
 \label{provisioning}
 \end{figure}
 
-wireless data centers: making data centers flexible, i.e., using topology control to make resource allocation responding to traffic patterns and requirements \cite{Armbrust:2010:VCC:1721654.1721672}.
+Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
+
+The wireless-flexible data centers are generally composed of:
+\begin{enumerate}
+  \item Topology Control:
+  \begin{enumerate}
+    \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
+    \item Topology Graph: Physical-specific ID Addresses (PAs), Logical-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
+  \end{enumerate}
+  \item Addressing:
+  \begin{enumerate}
+    \item PAs: providing distance information for 3D Beamforming
+    \item LAs: providing topology information for Link Adaption
+    \item AAs: providing traffic information for Demand Response
+  \end{enumerate}
+  \item Capacity Scheduling:
+  \begin{enumerate}
+    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to PAs
+    \item Demand Response: traffic estimation according to AAs
+    \item Link Adaption: capacity scheduling according to LAs
+  \end{enumerate}
+\end{enumerate}
+
+\section{Methodology}
+
+The problems of topology control, addressing, routing, and scheduling also exit in traditional data centers, but it brings new challenges when wireless links are introduced. For instance, the topology graph is changing due to wireless links and on-demand response. Also, the capacity matrix and conflict graph of wireless links are closely related to the relative locations , e.g., 6G for neighbor servers and 1/2G for non-neighbor servers. 
+\subsection{Measurement}
+
+Measurement:
+\begin{itemize}
+  \item Propagation table
+  \item Capacity matrix
+  \item Traffic loads
+\end{itemize}
+
+Topology changes:
+\begin{itemize}
+  \item Errors: nodes, links, miswiring
+  \item wireless linking
+  \item Sleeping on-off
+\end{itemize}
+
+Mapping:
+\begin{itemize}
+  \item PA to LA (Beamforming)
+  \item AA to LA (Traffic estimation)
+\end{itemize}
+
+Connections:
+\begin{itemize}
+  \item wired 10G
+  \item wireless direct 6G
+  \item wireless indirect 1/2G
+\end{itemize}
+
+wireless data centers: making data centers flexible, i.e., using topology control to make resource allocation responding to traffic patterns and requirements.
 \begin{itemize}
   \item graph mapping: topology changes due to errors or wireless links.
   \item demand response: topology and capacity (wired and wireless) are stable for certain graphs, so the problem is demand estimation.
 \end{itemize}
 So how to allocate wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), to deal with the problem of demand response when topology graphs are changing. Topology changes may occur due to errors, sleeping mechanism or wireless links.
-
-\section{Methodology}
 
 reasons for compress sensing:
 \begin{enumerate}
@@ -89,7 +140,42 @@ reasons for compress sensing:
   \item topology graphs have \textbf{local changes} (errors, on-off or wireless) in real-time operating: conditions
 \end{enumerate}
 
+\subsection{Scheduling}
+
 \section{Evaluation}
+
+\section{Literature Review}
+
+Data Center Networks:
+\begin{itemize}
+  \item Static-electrical:
+  \begin{itemize}
+    \item Server-centric:
+    \begin{itemize}
+      \item DCell\cite{Guo:2008:DSF:1402958.1402968}
+      \item BCube\cite{Guo:2009:BHP:1592568.1592577}
+    \end{itemize}
+    \item Multi-level tree:
+    \begin{itemize}
+      \item Fat-tree\cite{Al-Fares:2008:SCD:1402958.1402967}
+      \item VL2\cite{Greenberg:2009:VSF:1592568.1592576}
+    \end{itemize}
+  \end{itemize}
+  \item Flexible:
+  \begin{itemize}
+    \item Optical:
+    \begin{itemize}
+      \item OSA\cite{chen2012osa}
+      \item c-Through\cite{Wang:2010:CPO:1851182.1851222}
+      \item Helios\cite{Farrington:2010:HHE:1851182.1851223}
+    \end{itemize}
+    \item Wireless:
+    \begin{itemize}
+      \item Wireless flyways\cite{Halperin:2011:ADC:2018436.2018442}
+      \item 3D beamforming\cite{Zhou:2012:MMC:2342356.2342440}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
@@ -128,6 +214,35 @@ Architecture
 
 \textbf{"VL2: A Scalable and Flexible Data Center Network", SIGCOMM 2009}
 
+1. Background:
+\begin{itemize}
+  \item Limited server-to-server capacity: over-subscription ratio increases rapidly
+  \item Fragmentation of resources: high turnaround time for reconfiguration
+  \item Poor reliability and utilization: multiple paths waste at most 50\% of maximum utilization
+\end{itemize}
+
+2. Measurement:
+\begin{itemize}
+  \item Flow: VLB will perform well on this traffic
+  \begin{itemize}
+    \item Distribution of flow sizes: majority of flows are small
+    \item Number of concurrent flows: 10 concurrent flows at more than 50\% of the time, 80 concurrent flows at least 5\% of the time
+  \end{itemize}
+  \item Traffic: it is unlikely that other routing strategies will outperform VLB
+  \begin{itemize}
+    \item Poor summarizability of traffic patterns
+    \item Instability of traffic patterns
+  \end{itemize}
+  \item Failure
+\end{itemize}
+
+3. Solution: Virtual Layer 2 Networking
+\begin{itemize}
+  \item Topology: $D_I$ Int. Switches and $D_A$ Agg. Switches
+  \item Addressing: Location-specific IP Addresses and Application-specific IP Addresses
+  \item Directory: lookups and updates of AA-to-LA mapping, reactive cache update
+\end{itemize}
+
 Data center traffic analysis:
 \begin{itemize}
   \item arrive intervals.
@@ -137,6 +252,10 @@ Data center traffic analysis:
 \textbf{"DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers", SIGCOMM 2008}
 
 \textbf{"A Scalable, Commodity Data Center Network Architecture", SIGCOMM 2008}
+
+Topology: k pods, two layers of k/2 switches, each k-port switch connected to k/2 hosts, each remaining k/2 ports connected to k/2 of the k ports in the aggregation layer of the hierarchy. Max $48\cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts for 48-port GigE switches.
+
+Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
 
 Wireless
 
@@ -161,6 +280,7 @@ Wireless Data Center is a new concept which should be explored further. Many iss
   \end{enumerate}
 \end{enumerate}
 
+Problem:
 \begin{enumerate}
   \item Apart from the concurrent links, the efficient throughput should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance as shown in Figure 5.
   \item

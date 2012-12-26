@@ -14,7 +14,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[left=1in,right=1in,top=1in,bottom=0.8in]{geometry}
-\usepackage[bookmarks=false,pdfstartview=FitH,bookmarksopen=true]{hyperref}
+\usepackage[bookmarks=true,pdfstartview=FitH,,bookmarksopen=true,colorlinks,citecolor=blue,filecolor=green,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{bookmark}
+%\usepackage[bookmarks=false,pdfstartview=FitH,bookmarksopen=true]{hyperref}
 \usepackage{url}
 \usepackage[caption=false,font=footnotesize]{subfig}
 %\usepackage{fixltx2e}
@@ -72,32 +74,32 @@ With the increasing demand of traffic loads and user requirements, it is a great
 
 Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
 
-The flexible data centers are generally composed of:
+The wireless-flexible data centers are generally composed of:
 \begin{enumerate}
-  \item Topology Control:
+  \item Topology and Addressing:
   \begin{enumerate}
     \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
-    \item Topology Graph: Physical-specific ID Addresses (PAs), Location-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
+    \item Topology Graph: Physical-specific ID Addresses (PAs), Logical-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
+        \begin{enumerate}
+        \item PAs: providing distance information for 3D Beamforming
+        \item LAs: providing topology information for Capacity Adaption
+        \item AAs: providing traffic information for Demand Response
+        \end{enumerate}
   \end{enumerate}
-  \item Addressing:
+  \item Routing and Scheduling:
   \begin{enumerate}
-    \item PAs: providing device information for Topology Control
-    \item LAs: providing distance information for 3D Beamforming
-    \item AAs: providing traffic information for Demand Response
-  \end{enumerate}
-  \item Capacity Scheduling:
-  \begin{enumerate}
-    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to LAs
+    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to PAs
     \item Demand Response: traffic estimation according to AAs
-    \item Link Adaption: capacity scheduling according to Conflict Graph and Topology Graph
+    \item Capacity Adaption: capacity scheduling according to LAs
   \end{enumerate}
 \end{enumerate}
 
 \section{Methodology}
 
+The problems of topology control, addressing, routing, and scheduling also exit in traditional data centers, but it brings new challenges when wireless links are introduced. For instance, the topology graph is changing due to wireless links and on-demand response. Also, the capacity matrix and conflict graph of wireless links are closely related to the relative locations of servers, e.g., 6G for neighbor servers and 1/2G for non-neighbor servers. Furthermore, the measurement and mapping of topology graph, conflict graph and traffic loads is challenging for large scale data centers.
+
 \subsection{Measurement}
 
-Measurement:
 \begin{itemize}
   \item Propagation table
   \item Capacity matrix
@@ -114,7 +116,7 @@ Topology changes:
 Mapping:
 \begin{itemize}
   \item PA to LA (Beamforming)
-  \item LA to AA (Traffic estimation)
+  \item AA to LA (Traffic estimation)
 \end{itemize}
 
 Connections:
@@ -139,17 +141,45 @@ reasons for compress sensing:
   \item topology graphs have \textbf{local changes} (errors, on-off or wireless) in real-time operating: conditions
 \end{enumerate}
 
-\subsection{Mapping}
-
 \subsection{Scheduling}
-
-\section{Evaluation}
 
 \section{Literature Review}
 
+Data Center Networks:
+\begin{itemize}
+  \item Static-electrical:
+  \begin{itemize}
+    \item Server-centric:
+    \begin{itemize}
+      \item DCell\cite{Guo:2008:DSF:1402958.1402968}
+      \item BCube\cite{Guo:2009:BHP:1592568.1592577}
+    \end{itemize}
+    \item Multi-level tree:
+    \begin{itemize}
+      \item Fat-tree\cite{Al-Fares:2008:SCD:1402958.1402967}
+      \item VL2\cite{Greenberg:2009:VSF:1592568.1592576}
+    \end{itemize}
+  \end{itemize}
+  \item Flexible:
+  \begin{itemize}
+    \item Optical:
+    \begin{itemize}
+      \item c-Through\cite{Wang:2010:CPO:1851182.1851222}
+      \item Helios\cite{Farrington:2010:HHE:1851182.1851223}
+      \item OSA\cite{chen2012osa}
+    \end{itemize}
+    \item Wireless:
+    \begin{itemize}
+      \item Wireless flyways\cite{Halperin:2011:ADC:2018436.2018442}
+      \item 3D beamforming\cite{Zhou:2012:MMC:2342356.2342440}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
 
-Basic Procedures:
+Basic Procedures:\cite{Chen:2010:GAA:1851182.1851190}
 \begin{enumerate}
   \item O2 Mapping
   \begin{enumerate}
@@ -167,7 +197,6 @@ Basic Procedures:
 Problems:
 \begin{enumerate}
   \item Initial selection of vertex $\nu\in\pi_p^i$
-  \item Compute complexity of O2
   \item Whether it can be resolved by Compress Sensing?
   \begin{enumerate}
     \item the topology graphs are sparse.
@@ -179,7 +208,43 @@ Problems:
 
 Architecture
 
+\textbf{"A Scalable, Commodity Data Center Network Architecture", SIGCOMM 2008}
+
+Topology: k pods, two layers of k/2 switches, each k-port switch connected to k/2 hosts, each remaining k/2 ports connected to k/2 of the k ports in the aggregation layer of the hierarchy. Max $48\cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts for 48-port GigE switches.
+
+Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
+
+\textbf{"DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers", SIGCOMM 2008}
+
+Large-scale, server-centric data centers
+
+Topology:
+$n$ servers connected to a mini-switch within $DCell_0$, then $DCell_k$ is recursively generated by $t_{k-1}+1$ $DCell_{k-1}$s. The number of servers scales doubly exponentially as the node degree increases.
+
+Addressing:
+a server in $DCell_k$ is denoted by $[a_k,uid_{k-1}]$, where $a_k$ is the $DCell_k$ this server belongs to and $uid_{k-1}$ is the unique ID of the server inside this $DCell_{k-1}$.
+
+Routing: find the connection $(n_1,n_2)$ between $DCell$s, then find the paths of $src$ to $n_1$ and $n_2$ to $dst$. When failures occur, choosing \textit{proxy} to make local-reroute or jump-up (rack failure).
+
+Problems:
+\begin{itemize}
+  \item the bottleneck link locates in the low-level links and traffics are not balanced
+  \item increment expansion requires additional ports which brings extra overhead and complexity
+\end{itemize}
+
+
 \textbf{"BCube: A High Performance, Server-centric Network Architecture for Modular Data Centers", SIGCOMM 2009}
+
+Server-centric modular data centers
+
+Topology:
+$BCube_0$ is $n$ servers connecting to an $n$-port switch. $BCube_k$ is constructed from $n$ $BCube_{k-1}$s and $n^k$ $n$-port switches.
+
+Addressing:
+servers: $a_ka_{k-1}\cdot\cdot\cdot a_0$ ($a_i\in [0,n-1],i\in [0,k]$); switches: $<l,s_{k-1},s_{k-2}\cdot\cdot\cdot s_0>$, where $l$($0\leq l\leq k$) is the level of the switch.
+
+Routing:
+
 
 \textbf{"VL2: A Scalable and Flexible Data Center Network", SIGCOMM 2009}
 
@@ -212,23 +277,15 @@ Architecture
   \item Directory: lookups and updates of AA-to-LA mapping, reactive cache update
 \end{itemize}
 
-Data center traffic analysis:
+Problems:
 \begin{itemize}
   \item arrive intervals.
   \item application types.
 \end{itemize}
 
-\textbf{"DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers", SIGCOMM 2008}
-
-\textbf{"A Scalable, Commodity Data Center Network Architecture", SIGCOMM 2008}
-
-Topology: k pods, two layers of k/2 switches, each k-port switch connected to k/2 hosts, each remaining k/2 ports connected to k/2 of the k ports in the aggregation layer of the hierarchy. Max $48\cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts for 48-port GigE switches.
-
-Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
-
 Wireless
 
-\textbf{"Mirror Mirror on the Ceiling: Flexible Wireless Links for Data Centers ", SIGCOMM 2012}
+\textbf{"Mirror Mirror on the Ceiling: Flexible Wireless Links for Data Centers", SIGCOMM 2012}
 
 Wireless Data Center is a new concept which should be explored further. Many issues such as interference, secluding, security, etc. should be standardized. On the other hand, the issues on cost, performance, energy-efficiency, reliability, etc. should be taken into consideration compared with electrical or optical data centers.
 
@@ -249,28 +306,24 @@ Wireless Data Center is a new concept which should be explored further. Many iss
   \end{enumerate}
 \end{enumerate}
 
-Problem:
-\begin{enumerate}
-  \item Apart from the concurrent links, the efficient throughput should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance as shown in Figure 5.
-  \item
-  \item
-\end{enumerate}
-
 Max concurrent links: Link conflicts (SINR); Greedy scheduling (graph coloring); Assigning radios.
+
+Problems:
+\begin{itemize}
+  \item Apart from the concurrent links, the efficient throughput should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance as shown in Figure 5.
+\end{itemize}
 
 
 \textbf{"Augmenting Data Center Networks with Multi-gigabit Wireless Links", SIGCOMM 2011}
 
 "The base wired network is provisioned for the \textbf{average case} and can be oversubscribed. Each ToR switch is equipped withe one or more 60GHz wireless devices." "A central controller monitors DC \textbf{traffic patterns}, and switches the beams of the wireless devices to set up flyways between ToR switches that provide \textbf{added bandwidth} as needed." So it is ideal for \textbf{flexible and energy-efficient} data centers.
 
-Problem:
+Problems:
 \begin{itemize}
-  \item Conflict graph: for $N$ racks and $K$ antenna orientations, the input table is very \textbf{large} with the size of $(NK)^2$, and the propagation conditions are similar, i.e., the table is \textbf{sparse}.
+  \item Conflict graph: for $N$ racks and $K$ antenna orientations, the input table is very \textbf{large} with the size of $(NK)^2$. On the other hand, the propagation conditions are similar, i.e., the table is \textbf{sparse}.
 \end{itemize}
 
-For flexible data centers, 60GHz wireless is an attractive choice for its simplify and inexpensive features. On the other hand, 60GHz wireless is a active research area, such as IEEE 802.11ad, WiGig and WirelessHD standards, that are still under exploring on protocols and technology. For data centers, it should be further explored according to the topology and requirements.
-
-Resource Allocation
+Resource Allocation (to be done)
 
 \textbf{"FairCloud: Sharing The Network In Cloud Computing", SIGCOMM 2012}
 
