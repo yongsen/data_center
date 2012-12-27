@@ -14,8 +14,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[left=1in,right=1in,top=1in,bottom=0.8in]{geometry}
-\usepackage[bookmarks=true,pdfstartview=FitH,,bookmarksopen=true,colorlinks,citecolor=blue,filecolor=green,linkcolor=blue,urlcolor=blue]{hyperref}
-\usepackage{bookmark}
+\usepackage[bookmarks=false,pdfstartview=FitH,colorlinks,citecolor=blue,filecolor=green,linkcolor=blue,urlcolor=blue]{hyperref}
+%\usepackage{bookmark}
 %\usepackage[bookmarks=false,pdfstartview=FitH,bookmarksopen=true]{hyperref}
 \usepackage{url}
 \usepackage[caption=false,font=footnotesize]{subfig}
@@ -111,12 +111,14 @@ Considering the scale of topology (conflict/topology graph and different address
 
 \textbf{Addressing:} changing according to topology, PAs and AAs should be mapped to LAs to make 3D beamforming, demand response and capacity scheduling.
 
-\textbf{Scheduling:} 
+\textbf{Scheduling:} when the capacity matrix and traffic demands are mapped to LAs, we can determine the scheduling strategy including 3D beamforming and routing paths.
 
 
 \subsection{Compress Sensing}
 
-The conflict graph can be classified into the topology graph, since it represents the wireless connections which provide additional 1/2/6G capacity for different ToRs. It is challenging to measure such a large scale topology graph (PAs and AAs) which usually requires all-to-all communications. Since both conflict graph \cite{Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary. The requirements and reasons for compress sensing are:
+The conflict graph can be classified into the topology graph, since it represents the wireless connections which provide additional 1/2/6G capacity for different ToRs. It is challenging to measure such a large scale topology graph (PAs and AAs) which usually requires all-to-all communications. Since both conflict graph \cite{Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole account password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary.
+
+The requirements and reasons for Compress Sensing are:
 \begin{enumerate}
   \item topology graphs are \textbf{large}, and so comes the requirement to reduce measuring and mapping overhead
   \item wireless propagation and traffic demand have \textbf{dynamic} furthers, so the measurement is challenging
@@ -124,50 +126,54 @@ The conflict graph can be classified into the topology graph, since it represent
   \item topology graphs only have \textbf{local changes} (errors, on-off or wireless) in real-time operating
 \end{enumerate}
 
-Given a topology graph $G=(V,E)$, if its Adjacency Matrix is $A^{n\times n}$, it can be represented by $n$ vertex $A_i$. then the estimation result $\hat{A_i}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{m\times n} (m\ll n)$
+If the adjacency matrix of a given topology graph $G=(V,E)$ is $A^{N\times N}$, it can be represented by $N$ vertex $A_i$. Then the estimated matrix $\hat{y}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{n\times N} (n\ll N)$ as follows:
 \begin{equation}
- \hat{A_i}=\Phi A_i
+ y=\Phi A_i
  \label{estimation}
 \end{equation}
-then $\hat{A_i}$ can be easily measured and $A$ can be reconstructed through $\hat{A_i}$. It is not certain that whether topology graph can be estimated by Compress Sensing, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
+If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, the estimated results can be obtained by optimization
+\begin{equation}
+ min \parallel A_i-f(y) \parallel_{l_x}
+ \label{recover1}
+\end{equation}
+\begin{equation}
+ s.t.~~~~\Phi A_i = y
+ \label{recover2}
+\end{equation}
+where $l_x (x=0,1,2)$ is the . Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
 
 The topology that should be measured includes:
 \begin{itemize}
-  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings)
+  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings) \cite{Zhou:2012:MMC:2342356.2342440,Halperin:2011:ADC:2018436.2018442}
   \item PAs $\rightarrow$ LAs
-  \item Traffic loads $\rightarrow$ Demands
+  \item Traffic loads $\rightarrow$ Demands: the distribution of traffic loads has location differences across AAs and ToRs \cite{Halperin:2011:ADC:2018436.2018442,Greenberg:2009:VSF:1592568.1592576}
 \end{itemize}
 
-Topology changes:
+Topology changes due to:
 \begin{itemize}
   \item Errors: nodes, links, miswiring
   \item wireless linking (links)
   \item Sleeping on-off (nodes)
 \end{itemize}
 
-\subsection{Virtual Logical-address}
+\subsection{Logical Addressing}
 
-Mapping:
-\begin{itemize}
-  \item PA to LA (Beamforming)
-  \item AA to LA (Traffic estimation)
-\end{itemize}
+Wireless links make data centers flexible, i.e., using topology control and capacity scheduling to make resource allocation responding to traffic patterns and requirements. So the problem is how to allocate wireless links to deal with the problem of demand response when topology graphs are changing.
 
-Connections:
+The capacity matrix is composed of wired and wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), which can be obtained by PAs:
 \begin{itemize}
   \item wired 10G
   \item wireless direct 6G
   \item wireless indirect 1/2G
 \end{itemize}
 
-wireless data centers: making data centers flexible, i.e., using topology control to make resource allocation responding to traffic patterns and requirements.
+Then the PAs (conflict and topology graphs) and demands estimation (AAs) can be mapped to LAs:
 \begin{itemize}
-  \item graph mapping: topology changes due to errors or wireless links.
-  \item demand response: topology and capacity (wired and wireless) are stable for certain graphs, so the problem is demand estimation.
+  \item PA to LA for 3D Beamforming
+  \item AA to LA for Traffic estimation
 \end{itemize}
-So how to allocate wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), to deal with the problem of demand response when topology graphs are changing. Topology changes may occur due to errors, sleeping mechanism or wireless links.
 
-\subsection{Scheduling}
+When the topology graph and traffic demands are mapped to LAs, the capacity scheduling can be made responding to dynamic traffic loads. First, we can get the whole capacity matrix according to propagation table and topology graph. Second, greedy choice of flyways can be made according to capacity matrix an traffic demands. Finally, we can make wireless linking by direct or indirect beamforming if necessary, and make routing and scheduling further.
 
 \section{Literature Review}
 
@@ -198,6 +204,7 @@ Data Center Networks:
     \begin{itemize}
       \item Wireless flyways\cite{Halperin:2011:ADC:2018436.2018442}
       \item 3D beamforming\cite{Zhou:2012:MMC:2342356.2342440}
+      \item Cylindrical racks with pie-shaped servers \cite{Shin:2012:FCW:2396556.2396560}
     \end{itemize}
   \end{itemize}
 \end{itemize}
@@ -213,7 +220,7 @@ These papers mainly discussed the issues of:
 
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
 
-Basic Procedures:\cite{Chen:2010:GAA:1851182.1851190}
+Basic Procedures:
 \begin{enumerate}
   \item O2 Mapping
   \begin{enumerate}
@@ -357,7 +364,7 @@ Problems:
   \item Conflict graph: for $N$ racks and $K$ antenna orientations, the input table is very \textbf{large} with the size of $(NK)^2$. On the other hand, the propagation conditions are similar, i.e., the table is \textbf{sparse}.
 \end{itemize}
 
-Resource Allocation (to be done)
+to be done
 
 \textbf{"FairCloud: Sharing The Network In Cloud Computing", SIGCOMM 2012}
 
