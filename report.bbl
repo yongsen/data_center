@@ -56,6 +56,11 @@ Halperin, D., Kandula, S., Padhye, J., Bahl, P., and Wetherall, D. (2011).
 \newblock Augmenting data center networks with multi-gigabit wireless links.
 \newblock ACM SIGCOMM '11.
 
+\bibitem[Shin et~al., 2012]{Shin:2012:FCW:2396556.2396560}
+Shin, J.-Y., Sirer, E.~G., Weatherspoon, H., and Kirovski, D. (2012).
+\newblock On the feasibility of completely wireless datacenters.
+\newblock ACM ANCS '12.
+
 \bibitem[Wang et~al., 2010]{Wang:2010:CPO:1851182.1851222}
 Wang, G., Andersen, D.~G., Kaminsky, M., Papagiannaki, K., Ng, T.~E., Kozuch,
   M., and Ryan, M. (2010).

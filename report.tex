@@ -96,22 +96,56 @@ The wireless-flexible data centers are generally composed of:
 
 \section{Methodology}
 
-The problems of topology control, addressing, routing, and scheduling also exit in traditional data centers, but it brings new challenges when wireless links are introduced. For instance, the topology graph is changing due to wireless links and on-demand response. Also, the capacity matrix and conflict graph of wireless links are closely related to the relative locations of servers, e.g., 6G for neighbor servers and 1/2G for non-neighbor servers. Furthermore, the measurement and mapping of topology graph, conflict graph and traffic loads is challenging for large scale data centers.
+The problems of topology control, addressing, routing, and scheduling also exit in traditional data centers, but it brings new challenges when wireless links are introduced. For instance, the topology graph is changing due to wireless links and on-demand response. Also, the capacity matrix and conflict graph of wireless links are closely related to the relative locations of servers, e.g., capacity of 6G for neighbor servers and 1/2G for non-neighbor servers. Furthermore, the measurement and mapping of topology graph, conflict graph and traffic loads is challenging for large scale data centers.
 
-\subsection{Measurement}
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=0.8\textwidth]{framework.pdf}
+\caption{framework}
+\label{framework}
+\end{figure}
 
+Considering the scale of topology (conflict/topology graph and different addresses) and multi-layer scheduling (physical topology, capacity matrix and traffic patterns), we can employ \textbf{Compress Sensing} and \textbf{Logical Addressing} to address these problems.
+
+\textbf{Topology:} multi-layer tree topology such as Fat-tree and VL2 (or cylindrical racks housing pie-shaped servers \cite{Shin:2012:FCW:2396556.2396560}) with ToRs.
+
+\textbf{Addressing:} changing according to topology, PAs and AAs should be mapped to LAs to make 3D beamforming, demand response and capacity scheduling.
+
+\textbf{Scheduling:} 
+
+
+\subsection{Compress Sensing}
+
+The conflict graph can be classified into the topology graph, since it represents the wireless connections which provide additional 1/2/6G capacity for different ToRs. It is challenging to measure such a large scale topology graph (PAs and AAs) which usually requires all-to-all communications. Since both conflict graph \cite{Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary. The requirements and reasons for compress sensing are:
+\begin{enumerate}
+  \item topology graphs are \textbf{large}, and so comes the requirement to reduce measuring and mapping overhead
+  \item wireless propagation and traffic demand have \textbf{dynamic} furthers, so the measurement is challenging
+  \item topology graphs are \textbf{sparse}, which is the prior condition for compress sensing
+  \item topology graphs only have \textbf{local changes} (errors, on-off or wireless) in real-time operating
+\end{enumerate}
+
+Given a topology graph $G=(V,E)$, if its Adjacency Matrix is $A^{n\times n}$, it can be represented by $n$ vertex $A_i$. then the estimation result $\hat{A_i}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{m\times n} (m\ll n)$
+\begin{equation}
+ \hat{A_i}=\Phi A_i
+ \label{estimation}
+\end{equation}
+then $\hat{A_i}$ can be easily measured and $A$ can be reconstructed through $\hat{A_i}$. It is not certain that whether topology graph can be estimated by Compress Sensing, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
+
+The topology that should be measured includes:
 \begin{itemize}
-  \item Propagation table
-  \item Capacity matrix
-  \item Traffic loads
+  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings)
+  \item PAs $\rightarrow$ LAs
+  \item Traffic loads $\rightarrow$ Demands
 \end{itemize}
 
 Topology changes:
 \begin{itemize}
   \item Errors: nodes, links, miswiring
-  \item wireless linking
-  \item Sleeping on-off
+  \item wireless linking (links)
+  \item Sleeping on-off (nodes)
 \end{itemize}
+
+\subsection{Virtual Logical-address}
 
 Mapping:
 \begin{itemize}
@@ -132,14 +166,6 @@ wireless data centers: making data centers flexible, i.e., using topology contro
   \item demand response: topology and capacity (wired and wireless) are stable for certain graphs, so the problem is demand estimation.
 \end{itemize}
 So how to allocate wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), to deal with the problem of demand response when topology graphs are changing. Topology changes may occur due to errors, sleeping mechanism or wireless links.
-
-reasons for compress sensing:
-\begin{enumerate}
-  \item topology graphs are \textbf{large}: the requirement for compress sensing to reduce mapping overhead
-  \item wireless propagation and traffic demand measurement is challenging: requirements
-  \item topology graphs are \textbf{sparse}: the prior condition for compress sensing
-  \item topology graphs have \textbf{local changes} (errors, on-off or wireless) in real-time operating: conditions
-\end{enumerate}
 
 \subsection{Scheduling}
 
@@ -176,6 +202,14 @@ Data Center Networks:
   \end{itemize}
 \end{itemize}
 
+These papers mainly discussed the issues of:
+\begin{itemize}
+  \item topology \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576,Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
+  \item addressing \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576}
+  \item mapping \cite{Chen:2010:GAA:1851182.1851190,Greenberg:2009:VSF:1592568.1592576}
+  \item routing \cite{Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
+  \item scheduling \cite{Al-Fares:2008:SCD:1402958.1402967,Halperin:2011:ADC:2018436.2018442}
+\end{itemize}
 
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
 
