@@ -101,7 +101,7 @@ The problems of topology control, addressing, routing, and scheduling also exit 
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=0.8\textwidth]{framework.pdf}
-\caption{framework}
+\caption{Framework of flexible data centers based on 60GHz wireless networks}
 \label{framework}
 \end{figure}
 
@@ -140,7 +140,7 @@ If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, 
  s.t.~~~~\Phi A_i = y
  \label{recover2}
 \end{equation}
-where $l_x (x=0,1,2)$ is the . Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
+where $l_x (x=0,1,2)$ are the norms of a vector, among which $l_1$ is usually used representing the number of non-zero coordinates. Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
 
 The topology that should be measured includes:
 \begin{itemize}
@@ -158,9 +158,7 @@ Topology changes due to:
 
 \subsection{Logical Addressing}
 
-Wireless links make data centers flexible, i.e., using topology control and capacity scheduling to make resource allocation responding to traffic patterns and requirements. So the problem is how to allocate wireless links to deal with the problem of demand response when topology graphs are changing.
-
-The capacity matrix is composed of wired and wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), which can be obtained by PAs:
+Wireless links make data centers flexible, i.e., using topology control and capacity scheduling to make resource allocation responding to traffic patterns and requirements. So the problem is how to allocate wireless links to deal with the problem of demand response when topology graphs are changing. The capacity matrix is composed of wired and wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), which can be obtained by PAs:
 \begin{itemize}
   \item wired 10G
   \item wireless direct 6G
@@ -211,11 +209,11 @@ Data Center Networks:
 
 These papers mainly discussed the issues of:
 \begin{itemize}
-  \item topology \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576,Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
-  \item addressing \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576}
-  \item mapping \cite{Chen:2010:GAA:1851182.1851190,Greenberg:2009:VSF:1592568.1592576}
-  \item routing \cite{Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
-  \item scheduling \cite{Al-Fares:2008:SCD:1402958.1402967,Halperin:2011:ADC:2018436.2018442}
+  \item Topology \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576,Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
+  \item Addressing \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576}
+  \item Mapping \cite{Chen:2010:GAA:1851182.1851190,Greenberg:2009:VSF:1592568.1592576}
+  \item Routing \cite{Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
+  \item Scheduling \cite{Al-Fares:2008:SCD:1402958.1402967,Halperin:2011:ADC:2018436.2018442}
 \end{itemize}
 
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
