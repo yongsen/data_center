@@ -49,94 +49,49 @@
 \maketitle% prints the title block
 %\onehalfspacing
 
-\section{Motivation}
-
-With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for the specific feature of topology and services.
-
-\begin{figure}[!htp]
-\centerline{
-    \subfloat[Provisioning for peak load]{
-    \includegraphics[width=0.33\textwidth]{capacity.pdf}
-    \label{peak}
-    }
-    \subfloat[Fixed underprovisioning]{
-    \includegraphics[width=0.33\textwidth]{capacity1.pdf}
-    \label{under}
-    }
-    \subfloat[Flexible underprovisioning]{
-    \includegraphics[width=0.33\textwidth]{capacity2.pdf}
-    \label{under_wireless}
-    }
-}
-\caption{Capacity provisioning based on traffic loads}
-\label{provisioning}
-\end{figure}
-
-Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
-
-The wireless-flexible data centers are generally composed of:
-\begin{enumerate}
-  \item Topology and Addressing:
-  \begin{enumerate}
-    \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
-    \item Topology Graph: Physical-specific ID Addresses (PAs), Logical-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
-        \begin{enumerate}
-        \item PAs: providing distance information for 3D Beamforming
-        \item LAs: providing topology information for Capacity Adaption
-        \item AAs: providing traffic information for Demand Response
-        \end{enumerate}
-  \end{enumerate}
-  \item Routing and Scheduling:
-  \begin{enumerate}
-    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to PAs
-    \item Demand Response: traffic estimation according to AAs
-    \item Capacity Adaption: capacity scheduling according to LAs
-  \end{enumerate}
-\end{enumerate}
-
 \section{Literature Review}
 
-Data Center Networks:
-\begin{itemize}
+According to the architecture and topology in these papers, Data Center Networks can be divided into:
+\begin{enumerate}
   \item Static-electrical:
-  \begin{itemize}
-    \item Multi-level tree:
-        \begin{itemize}
+  \begin{enumerate}
+    \item Multi-layer tree:
+        \begin{enumerate}
           \item Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}
           \item VL2 \cite{Greenberg:2009:VSF:1592568.1592576}
-        \end{itemize}
+        \end{enumerate}
     \item Server-centric:
-        \begin{itemize}
+        \begin{enumerate}
           \item DCell \cite{Guo:2008:DSF:1402958.1402968}
           \item BCube \cite{Guo:2009:BHP:1592568.1592577}
-        \end{itemize}
+        \end{enumerate}
     \item Random graph:
-        \begin{itemize}
+        \begin{enumerate}
         \item Jellyfish \cite{singla2012jellyfish}
-        \end{itemize}
+        \end{enumerate}
     \item Multi-tenant:
-        \begin{itemize}
+        \begin{enumerate}
         \item NetLord \cite{Mudigonda:2011:NSM:2018436.2018444}
         \item Oktopus \cite{Ballani:2011:TPD:2018436.2018465}
         \item FairCloud \cite{Popa:2011:FSN:2070562.2070584}
-        \end{itemize}
-  \end{itemize}
+        \end{enumerate}
+  \end{enumerate}
   \item Flexible:
-  \begin{itemize}
+  \begin{enumerate}
     \item Optical:
-    \begin{itemize}
+    \begin{enumerate}
       \item c-Through \cite{Wang:2010:CPO:1851182.1851222}
       \item Helios \cite{Farrington:2010:HHE:1851182.1851223}
       \item OSA \cite{chen2012osa}
-    \end{itemize}
+    \end{enumerate}
     \item Wireless:
-    \begin{itemize}
+    \begin{enumerate}
       \item Wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}
       \item 3D beamforming \cite{Zhou:2012:MMC:2342356.2342440}
       \item Cylindrical racks \cite{Shin:2012:FCW:2396556.2396560}
-    \end{itemize}
-  \end{itemize}
-\end{itemize}
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
 
 These papers mainly discussed the issues of:
 \begin{itemize}
@@ -150,50 +105,17 @@ These papers mainly discussed the issues of:
 
 \subsection{Static-electrical Data Centers}
 
+The traditional data centers are generally designed in static connection by electrical switches. For the issues of topology, routing and scheduling in these data centers, there are numerous researches in this field including Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}, VL2 \cite{Greenberg:2009:VSF:1592568.1592576}, DCell \cite{Guo:2008:DSF:1402958.1402968}, BCube \cite{Guo:2009:BHP:1592568.1592577}, Jellyfish \cite{singla2012jellyfish}, etc. These work can be classified into multi-layer tree, server-centric and random graph according to the differences in topology graph, which also brings different advantages and disadvantages.
+
 \subsubsection{Multi-layer Tree}
 
-\textbf{"A Scalable, Commodity Data Center Network Architecture", SIGCOMM 2008}
+The topology of fat-tree is multi-rooted tree which can provide full aggregate bandwidth with low cost and resolved the bottleneck in inter-node communication. But the scale of fat-tree is limited that $48$-port switches can only support $48 \cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts at most.
 
-Topology: k pods, two layers of k/2 switches, each k-port switch connected to k/2 hosts, each remaining k/2 ports connected to k/2 of the k ports in the aggregation layer of the hierarchy. Max $48\cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts for 48-port GigE switches.
+The conventional data center architecture has limited server-to-server capacity that the over-subscription ratio increases rapidly in upper layer switches. Also, servers in multi-layer tree are location related that nearby servers are responsible for demand peaks or failures resulting in resources wasting. According to the measurement and analysis of traffic patterns, VL2 adopts Virtual Layer 2 Networking to realize the dynamic resource allocation across large server pools. It can assign any server to any service which can address the fluctuating demands of individual services.
 
-Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
+The multi-rooted tree topology has poor fault-tolerant features which make it hard to detect and maintain failures. Furthermore, multi-rooted tree can not support one-to-all and all-to-all communications effectively.
 
-\textbf{"VL2: A Scalable and Flexible Data Center Network", SIGCOMM 2009}
-
-1. Background:
-\begin{itemize}
-  \item Limited server-to-server capacity: over-subscription ratio increases rapidly
-  \item Fragmentation of resources: high turnaround time for reconfiguration
-  \item Poor reliability and utilization: multiple paths waste at most 50\% of maximum utilization
-\end{itemize}
-
-2. Measurement:
-\begin{itemize}
-  \item Flow: VLB will perform well on this traffic
-  \begin{itemize}
-    \item Distribution of flow sizes: majority of flows are small
-    \item Number of concurrent flows: 10 concurrent flows at more than 50\% of the time, 80 concurrent flows at least 5\% of the time
-  \end{itemize}
-  \item Traffic: it is unlikely that other routing strategies will outperform VLB
-  \begin{itemize}
-    \item Poor summarizability of traffic patterns
-    \item Instability of traffic patterns
-  \end{itemize}
-  \item Failure
-\end{itemize}
-
-3. Solution: Virtual Layer 2 Networking
-\begin{itemize}
-  \item Topology: $D_I$ Int. Switches and $D_A$ Agg. Switches
-  \item Addressing: Location-specific IP Addresses and Application-specific IP Addresses
-  \item Directory: lookups and updates of AA-to-LA mapping, reactive cache update
-\end{itemize}
-
-Problems:
-\begin{itemize}
-  \item arrive intervals.
-  \item application types.
-\end{itemize}
+%Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
 
 \subsubsection{Server-centric}
 
@@ -231,15 +153,6 @@ Routing:
 \subsubsection{Random Graph}
 
 \textbf{"Jellyfish: Networking Data Centers Randomly", NSDI 2012}
-
-\subsubsection{Multi-tenant}
-
-\textbf{"FairCloud: Sharing The Network In Cloud Computing", SIGCOMM 2012}
-
-\textbf{"Towards Predictable Datacenter Networks", SIGCOMM 2011}
-
-\textbf{"NetLord: A Scalable Multi-tenant Network Architecture for Virtualized Datacenters", SIGCOMM 2011}
-
 
 \subsection{Flexible Data Centers}
 
@@ -311,6 +224,16 @@ Problems:
 
 \subsection{Other issues}
 
+\subsubsection{Multi-tenant}
+
+\textbf{"FairCloud: Sharing The Network In Cloud Computing", SIGCOMM 2012}
+
+\textbf{"Towards Predictable Datacenter Networks", SIGCOMM 2011}
+
+\textbf{"NetLord: A Scalable Multi-tenant Network Architecture for Virtualized Datacenters", SIGCOMM 2011}
+
+\subsubsection{Failure Handling}
+
 \textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
 
 Basic Procedures:
@@ -346,11 +269,69 @@ Problems:
 
 \subsection{Topology Control}
 
+\begin{enumerate}
+  \item topology graph is large and sparse
+  \item topology graph is changing due to errors, multiplexing and demand response
+  \item capacity differences in up- and down-link (directional graph)
+  \item capacity differences in connections (weighted graph)
+\end{enumerate}
+
+Compress Sensing
+
 \subsection{Demand Response}
+
+according to the traffic measurement and analysis in VL2 and wireless flyways, traffic patterns and loads are dynamic and unpredictable. So demand response can be done by Lyapunov optimization for it only needs the information of current and previous state.
 
 \subsection{Capacity Scheduling}
 
 \subsection{Resource Allocation}
+
+high efficiency: good trade-off between reliability and capacity
+
+\section{Motivation}
+
+With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for the specific feature of topology and services.
+
+\begin{figure}[!htp]
+\centerline{
+    \subfloat[Provisioning for peak load]{
+    \includegraphics[width=0.33\textwidth]{capacity.pdf}
+    \label{peak}
+    }
+    \subfloat[Fixed underprovisioning]{
+    \includegraphics[width=0.33\textwidth]{capacity1.pdf}
+    \label{under}
+    }
+    \subfloat[Flexible underprovisioning]{
+    \includegraphics[width=0.33\textwidth]{capacity2.pdf}
+    \label{under_wireless}
+    }
+}
+\caption{Capacity provisioning based on traffic loads}
+\label{provisioning}
+\end{figure}
+
+Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
+
+The wireless-flexible data centers are generally composed of:
+\begin{enumerate}
+  \item Topology and Addressing:
+  \begin{enumerate}
+    \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
+    \item Topology Graph: Physical-specific ID Addresses (PAs), Logical-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
+        \begin{enumerate}
+        \item PAs: providing distance information for 3D Beamforming
+        \item LAs: providing topology information for Capacity Adaption
+        \item AAs: providing traffic information for Demand Response
+        \end{enumerate}
+  \end{enumerate}
+  \item Routing and Scheduling:
+  \begin{enumerate}
+    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to PAs
+    \item Demand Response: traffic estimation according to AAs
+    \item Capacity Adaption: capacity scheduling according to LAs
+  \end{enumerate}
+\end{enumerate}
 
 \section{Methodology}
 

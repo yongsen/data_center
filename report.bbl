@@ -1,12 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Armbrust:2010:VCC:1721654.1721672}
-Michael Armbrust, Armando Fox, Rean Griffith, Anthony~D. Joseph, Randy Katz,
-  Andy Konwinski, Gunho Lee, David Patterson, Ariel Rabkin, Ion Stoica, and
-  Matei Zaharia.
-\newblock A view of cloud computing.
-\newblock {\em Commun. ACM}, 53(4):50--58, April 2010.
-
 \bibitem{Al-Fares:2008:SCD:1402958.1402967}
 Mohammad Al-Fares, Alexander Loukissas, and Amin Vahdat.
 \newblock A scalable, commodity data center network architecture.
@@ -109,5 +102,12 @@ Xin Wu, Daniel Turner, Chao-Chih Chen, David~A. Maltz, Xiaowei Yang, Lihua
   Yuan, and Ming Zhang.
 \newblock {NetPilot}: automating datacenter network failure mitigation.
 \newblock ACM SIGCOMM '12, 2012.
+
+\bibitem{Armbrust:2010:VCC:1721654.1721672}
+Michael Armbrust, Armando Fox, Rean Griffith, Anthony~D. Joseph, Randy Katz,
+  Andy Konwinski, Gunho Lee, David Patterson, Ariel Rabkin, Ion Stoica, and
+  Matei Zaharia.
+\newblock A view of cloud computing.
+\newblock {\em Commun. ACM}, 53(4):50--58, April 2010.
 
 \end{thebibliography}
