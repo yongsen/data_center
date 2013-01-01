@@ -100,40 +100,40 @@ Data Center Networks:
 \begin{itemize}
   \item Static-electrical:
   \begin{itemize}
-    \item Server-centric:
-        \begin{itemize}
-          \item DCell\cite{Guo:2008:DSF:1402958.1402968}
-          \item BCube\cite{Guo:2009:BHP:1592568.1592577}
-        \end{itemize}
     \item Multi-level tree:
         \begin{itemize}
-          \item Fat-tree\cite{Al-Fares:2008:SCD:1402958.1402967}
-          \item VL2\cite{Greenberg:2009:VSF:1592568.1592576}
+          \item Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}
+          \item VL2 \cite{Greenberg:2009:VSF:1592568.1592576}
+        \end{itemize}
+    \item Server-centric:
+        \begin{itemize}
+          \item DCell \cite{Guo:2008:DSF:1402958.1402968}
+          \item BCube \cite{Guo:2009:BHP:1592568.1592577}
         \end{itemize}
     \item Random graph:
         \begin{itemize}
-        \item Jellyfish\cite{singla2012jellyfish}
+        \item Jellyfish \cite{singla2012jellyfish}
         \end{itemize}
     \item Multi-tenant:
         \begin{itemize}
-        \item NetLord\cite{Mudigonda:2011:NSM:2018436.2018444}
-        \item Oktopus\cite{Ballani:2011:TPD:2018436.2018465}
-        \item FairCloud\cite{Popa:2011:FSN:2070562.2070584}
+        \item NetLord \cite{Mudigonda:2011:NSM:2018436.2018444}
+        \item Oktopus \cite{Ballani:2011:TPD:2018436.2018465}
+        \item FairCloud \cite{Popa:2011:FSN:2070562.2070584}
         \end{itemize}
   \end{itemize}
   \item Flexible:
   \begin{itemize}
     \item Optical:
     \begin{itemize}
-      \item c-Through\cite{Wang:2010:CPO:1851182.1851222}
-      \item Helios\cite{Farrington:2010:HHE:1851182.1851223}
-      \item OSA\cite{chen2012osa}
+      \item c-Through \cite{Wang:2010:CPO:1851182.1851222}
+      \item Helios \cite{Farrington:2010:HHE:1851182.1851223}
+      \item OSA \cite{chen2012osa}
     \end{itemize}
     \item Wireless:
     \begin{itemize}
-      \item Wireless flyways\cite{Halperin:2011:ADC:2018436.2018442}
-      \item 3D beamforming\cite{Zhou:2012:MMC:2342356.2342440}
-      \item Cylindrical racks with pie-shaped servers \cite{Shin:2012:FCW:2396556.2396560}
+      \item Wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}
+      \item 3D beamforming \cite{Zhou:2012:MMC:2342356.2342440}
+      \item Cylindrical racks \cite{Shin:2012:FCW:2396556.2396560}
     \end{itemize}
   \end{itemize}
 \end{itemize}
@@ -148,101 +148,15 @@ These papers mainly discussed the issues of:
   \item Failure handling \cite{Chen:2010:GAA:1851182.1851190,NiranjanMysore:2009:PSF:1592568.1592575,Wu:2012:NAD:2342356.2342438}
 \end{itemize}
 
-\textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
+\subsection{Static-electrical Data Centers}
 
-Basic Procedures:
-\begin{enumerate}
-  \item O2 Mapping
-  \begin{enumerate}
-    \item Candidate selection via SPLD: \textbf{select} candidate with the same SPLD.
-    \item Candidate filtering via orbit: \textbf{skip} candidate with the same orbit, then $Decomposition()$.
-    \item Selective splitting $Refinement^*()$: \textbf{split} cells that really connect to the including cell.
-  \end{enumerate}
-  \item Malfunction Detection
-  \begin{enumerate}
-    \item Anchor pair selection:
-    \item Malfunction detection:
-  \end{enumerate}
-\end{enumerate}
-
-Problems:
-\begin{enumerate}
-  \item Initial selection of vertex $\nu\in\pi_p^i$
-  \item Whether it can be resolved by Compress Sensing?
-  \begin{enumerate}
-    \item the topology graphs are sparse.
-    \item only certain parts are changing in real-time operating (considering certain servers can be turned down for energy-efficiency and demand response).
-  \end{enumerate}
-\end{enumerate}
-
-Architecture
-
-Optical
-
-\textbf{"OSA: An Optical Switching Architecture for Data Center Networks with Unprecedented Flexibility", NSDI 2012}
-
-\textbf{"c-Through: Part-time Optics in Data Centers", SIGCOMM 2010}
-
-\begin{enumerate}
-  \item optical circuit switching: high bandwidth but large delay (low bisection bandwidth)
-  \item convert routing to multiplex
-  \item separating the networks of packet-switch and circuit-switch increases the configuration complexity
-  \item buffer adds overhead
-  \item buffer at end hosts but not switches: requires hosts be programmable
-  \item weighted perfect matching problem: take traffic loads and capacity into consideration
-  \item each host runs a management daemon: adds overhead
-  \item artificially use an Ethernet switch to emulate the optical switch: accuracy
-\end{enumerate}
-
-\textbf{"Helios: A Hybrid Electrical/Optical Switch Architecture for Modular Data Centers", SIGCOMM 2010}
-
-the available bisection bandwidth is inflexible for predefined topology
-
-\begin{enumerate}
-  \item unlike c-Through, Helios requires no modifications to end hosts but only at switches
-  \item without debouncing and EDC will improve throughput, but will reduce goodput due to link insertion and signal noise?
-  \item unidirectional circuits can better adapt to asymmetric traffic demands
-\end{enumerate}
-
-Electric
+\subsubsection{Multi-layer Tree}
 
 \textbf{"A Scalable, Commodity Data Center Network Architecture", SIGCOMM 2008}
 
 Topology: k pods, two layers of k/2 switches, each k-port switch connected to k/2 hosts, each remaining k/2 ports connected to k/2 of the k ports in the aggregation layer of the hierarchy. Max $48\cdot \frac{48}{2} \cdot \frac{48}{2}=27648$ hosts for 48-port GigE switches.
 
 Addressing: Pod: 10.pod.switch.1, core: 10.k.j.i, host: 10.pod.switch.ID
-
-\textbf{"DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers", SIGCOMM 2008}
-
-Large-scale, server-centric data centers
-
-Topology:
-$n$ servers connected to a mini-switch within $DCell_0$, then $DCell_k$ is recursively generated by $t_{k-1}+1$ $DCell_{k-1}$s. The number of servers scales doubly exponentially as the node degree increases.
-
-Addressing:
-a server in $DCell_k$ is denoted by $[a_k,uid_{k-1}]$, where $a_k$ is the $DCell_k$ this server belongs to and $uid_{k-1}$ is the unique ID of the server inside this $DCell_{k-1}$.
-
-Routing: find the connection $(n_1,n_2)$ between $DCell$s, then find the paths of $src$ to $n_1$ and $n_2$ to $dst$. When failures occur, choosing \textit{proxy} to make local-reroute or jump-up (rack failure).
-
-Problems:
-\begin{itemize}
-  \item the bottleneck link locates in the low-level links and traffics are not balanced
-  \item increment expansion requires additional ports which brings extra overhead and complexity
-\end{itemize}
-
-
-\textbf{"BCube: A High Performance, Server-centric Network Architecture for Modular Data Centers", SIGCOMM 2009}
-
-Server-centric modular data centers
-
-Topology:
-$BCube_0$ is $n$ servers connecting to an $n$-port switch. $BCube_k$ is constructed from $n$ $BCube_{k-1}$s and $n^k$ $n$-port switches.
-
-Addressing:
-servers: $a_ka_{k-1}\cdot\cdot\cdot a_0$ ($a_i\in [0,n-1],i\in [0,k]$); switches: $<l,s_{k-1},s_{k-2}\cdot\cdot\cdot s_0>$, where $l$($0\leq l\leq k$) is the level of the switch.
-
-Routing:
-
 
 \textbf{"VL2: A Scalable and Flexible Data Center Network", SIGCOMM 2009}
 
@@ -281,7 +195,82 @@ Problems:
   \item application types.
 \end{itemize}
 
-Wireless
+\subsubsection{Server-centric}
+
+\textbf{"DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers", SIGCOMM 2008}
+
+Large-scale, server-centric data centers
+
+Topology:
+$n$ servers connected to a mini-switch within $DCell_0$, then $DCell_k$ is recursively generated by $t_{k-1}+1$ $DCell_{k-1}$s. The number of servers scales doubly exponentially as the node degree increases.
+
+Addressing:
+a server in $DCell_k$ is denoted by $[a_k,uid_{k-1}]$, where $a_k$ is the $DCell_k$ this server belongs to and $uid_{k-1}$ is the unique ID of the server inside this $DCell_{k-1}$.
+
+Routing: find the connection $(n_1,n_2)$ between $DCell$s, then find the paths of $src$ to $n_1$ and $n_2$ to $dst$. When failures occur, choosing \textit{proxy} to make local-reroute or jump-up (rack failure).
+
+Problems:
+\begin{itemize}
+  \item the bottleneck link locates in the low-level links and traffics are not balanced
+  \item increment expansion requires additional ports which brings extra overhead and complexity
+\end{itemize}
+
+
+\textbf{"BCube: A High Performance, Server-centric Network Architecture for Modular Data Centers", SIGCOMM 2009}
+
+Server-centric modular data centers
+
+Topology:
+$BCube_0$ is $n$ servers connecting to an $n$-port switch. $BCube_k$ is constructed from $n$ $BCube_{k-1}$s and $n^k$ $n$-port switches.
+
+Addressing:
+servers: $a_ka_{k-1}\cdot\cdot\cdot a_0$ ($a_i\in [0,n-1],i\in [0,k]$); switches: $<l,s_{k-1},s_{k-2}\cdot\cdot\cdot s_0>$, where $l$($0\leq l\leq k$) is the level of the switch.
+
+Routing:
+
+\subsubsection{Random Graph}
+
+\textbf{"Jellyfish: Networking Data Centers Randomly", NSDI 2012}
+
+\subsubsection{Multi-tenant}
+
+\textbf{"FairCloud: Sharing The Network In Cloud Computing", SIGCOMM 2012}
+
+\textbf{"Towards Predictable Datacenter Networks", SIGCOMM 2011}
+
+\textbf{"NetLord: A Scalable Multi-tenant Network Architecture for Virtualized Datacenters", SIGCOMM 2011}
+
+
+\subsection{Flexible Data Centers}
+
+\subsubsection{Optical}
+
+\textbf{"OSA: An Optical Switching Architecture for Data Center Networks with Unprecedented Flexibility", NSDI 2012}
+
+\textbf{"c-Through: Part-time Optics in Data Centers", SIGCOMM 2010}
+
+\begin{enumerate}
+  \item optical circuit switching: high bandwidth but large delay (low bisection bandwidth)
+  \item convert routing to multiplex
+  \item separating the networks of packet-switch and circuit-switch increases the configuration complexity
+  \item buffer adds overhead
+  \item buffer at end hosts but not switches: requires hosts be programmable
+  \item weighted perfect matching problem: take traffic loads and capacity into consideration
+  \item each host runs a management daemon: adds overhead
+  \item artificially use an Ethernet switch to emulate the optical switch: accuracy
+\end{enumerate}
+
+\textbf{"Helios: A Hybrid Electrical/Optical Switch Architecture for Modular Data Centers", SIGCOMM 2010}
+
+the available bisection bandwidth is inflexible for predefined topology
+
+\begin{enumerate}
+  \item unlike c-Through, Helios requires no modifications to end hosts but only at switches
+  \item without debouncing and EDC will improve throughput, but will reduce goodput due to link insertion and signal noise?
+  \item unidirectional circuits can better adapt to asymmetric traffic demands
+\end{enumerate}
+
+\subsubsection{Wireless}
 
 \textbf{"Mirror Mirror on the Ceiling: Flexible Wireless Links for Data Centers", SIGCOMM 2012}
 
@@ -311,7 +300,6 @@ Problems:
   \item Apart from the concurrent links, the efficient throughput should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance as shown in Figure 5.
 \end{itemize}
 
-
 \textbf{"Augmenting Data Center Networks with Multi-gigabit Wireless Links", SIGCOMM 2011}
 
 "The base wired network is provisioned for the \textbf{average case} and can be oversubscribed. Each ToR switch is equipped withe one or more 60GHz wireless devices." "A central controller monitors DC \textbf{traffic patterns}, and switches the beams of the wireless devices to set up flyways between ToR switches that provide \textbf{added bandwidth} as needed." So it is ideal for \textbf{flexible and energy-efficient} data centers.
@@ -321,14 +309,48 @@ Problems:
   \item Conflict graph: for $N$ racks and $K$ antenna orientations, the input table is very \textbf{large} with the size of $(NK)^2$. On the other hand, the propagation conditions are similar, i.e., the table is \textbf{sparse}.
 \end{itemize}
 
-to be done
+\subsection{Other issues}
 
-\textbf{"FairCloud: Sharing The Network In Cloud Computing", SIGCOMM 2012}
+\textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
+
+Basic Procedures:
+\begin{enumerate}
+  \item O2 Mapping
+  \begin{enumerate}
+    \item Candidate selection via SPLD: \textbf{select} candidate with the same SPLD.
+    \item Candidate filtering via orbit: \textbf{skip} candidate with the same orbit, then $Decomposition()$.
+    \item Selective splitting $Refinement^*()$: \textbf{split} cells that really connect to the including cell.
+  \end{enumerate}
+  \item Malfunction Detection
+  \begin{enumerate}
+    \item Anchor pair selection:
+    \item Malfunction detection:
+  \end{enumerate}
+\end{enumerate}
+
+Problems:
+\begin{enumerate}
+  \item Initial selection of vertex $\nu\in\pi_p^i$
+  \item Whether it can be resolved by Compress Sensing?
+  \begin{enumerate}
+    \item the topology graphs are sparse.
+    \item only certain parts are changing in real-time operating (considering certain servers can be turned down for energy-efficiency and demand response).
+  \end{enumerate}
+\end{enumerate}
 
 \textbf{"NetPilot: Automating Datacenter Network Failure Mitigation", SIGCOMM 2012}
 
-\textbf{"Towards Predictable Datacenter Networks", SIGCOMM 2011}
+\textbf{"PortLand: A Scalable Fault-tolerant Layer 2 Data Center Network Fabric", SIGCOMM 2009}
 
+\section{Research Issues}
+
+\subsection{Topology Control}
+
+\subsection{Demand Response}
+
+\subsection{Capacity Scheduling}
+
+\subsection{Resource Allocation}
 
 \section{Methodology}
 

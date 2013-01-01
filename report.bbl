@@ -7,6 +7,17 @@ Michael Armbrust, Armando Fox, Rean Griffith, Anthony~D. Joseph, Randy Katz,
 \newblock A view of cloud computing.
 \newblock {\em Commun. ACM}, 53(4):50--58, April 2010.
 
+\bibitem{Al-Fares:2008:SCD:1402958.1402967}
+Mohammad Al-Fares, Alexander Loukissas, and Amin Vahdat.
+\newblock A scalable, commodity data center network architecture.
+\newblock ACM SIGCOMM '08, 2008.
+
+\bibitem{Greenberg:2009:VSF:1592568.1592576}
+Albert Greenberg, James~R. Hamilton, Navendu Jain, Srikanth Kandula, Changhoon
+  Kim, Parantap Lahiri, David~A. Maltz, Parveen Patel, and Sudipta Sengupta.
+\newblock {VL2}: a scalable and flexible data center network.
+\newblock ACM SIGCOMM '09, 2009.
+
 \bibitem{Guo:2008:DSF:1402958.1402968}
 Chuanxiong Guo, Haitao Wu, Kun Tan, Lei Shi, Yongguang Zhang, and Songwu Lu.
 \newblock {DCell}: a scalable and fault-tolerant network structure for data
@@ -20,21 +31,10 @@ Chuanxiong Guo, Guohan Lu, Dan Li, Haitao Wu, Xuan Zhang, Yunfeng Shi, Chen
   modular data centers.
 \newblock ACM SIGCOMM '09, 2009.
 
-\bibitem{Al-Fares:2008:SCD:1402958.1402967}
-Mohammad Al-Fares, Alexander Loukissas, and Amin Vahdat.
-\newblock A scalable, commodity data center network architecture.
-\newblock ACM SIGCOMM '08, 2008.
-
-\bibitem{Greenberg:2009:VSF:1592568.1592576}
-Albert Greenberg, James~R. Hamilton, Navendu Jain, Srikanth Kandula, Changhoon
-  Kim, Parantap Lahiri, David~A. Maltz, Parveen Patel, and Sudipta Sengupta.
-\newblock {VL2}: a scalable and flexible data center network.
-\newblock ACM SIGCOMM '09, 2009.
-
 \bibitem{singla2012jellyfish}
 A.~Singla, C.Y. Hong, L.~Popa, and P.B. Godfrey.
 \newblock Jellyfish: Networking data centers randomly.
-\newblock USENIXACM NSDI '12. Association, 2012.
+\newblock USENIX NSDI '12, 2012.
 
 \bibitem{Mudigonda:2011:NSM:2018436.2018444}
 Jayaram Mudigonda, Praveen Yalagandula, Jeff Mogul, Bryan Stiekes, and Yanick
