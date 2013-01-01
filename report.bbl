@@ -1,77 +1,113 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
 
-\bibitem[Al-Fares et~al., 2008]{Al-Fares:2008:SCD:1402958.1402967}
-Al-Fares, M., Loukissas, A., and Vahdat, A. (2008).
-\newblock A scalable, commodity data center network architecture.
-\newblock ACM SIGCOMM '08.
-
-\bibitem[Armbrust et~al., 2010]{Armbrust:2010:VCC:1721654.1721672}
-Armbrust, M., Fox, A., Griffith, R., Joseph, A.~D., Katz, R., Konwinski, A.,
-  Lee, G., Patterson, D., Rabkin, A., Stoica, I., and Zaharia, M. (2010).
+\bibitem{Armbrust:2010:VCC:1721654.1721672}
+Michael Armbrust, Armando Fox, Rean Griffith, Anthony~D. Joseph, Randy Katz,
+  Andy Konwinski, Gunho Lee, David Patterson, Ariel Rabkin, Ion Stoica, and
+  Matei Zaharia.
 \newblock A view of cloud computing.
-\newblock {\em Commun. ACM}, 53(4):50--58.
+\newblock {\em Commun. ACM}, 53(4):50--58, April 2010.
 
-\bibitem[Chen et~al., 2010]{Chen:2010:GAA:1851182.1851190}
-Chen, K., Guo, C., Wu, H., Yuan, J., Feng, Z., Chen, Y., Lu, S., and Wu, W.
-  (2010).
-\newblock Generic and automatic address configuration for data center networks.
-\newblock ACM SIGCOMM '10.
-
-\bibitem[Chen et~al., 2012]{chen2012osa}
-Chen, K., Singla, A., Singh, A., Ramachandran, K., Xu, L., Zhang, Y., Wen, X.,
-  and Chen, Y. (2012).
-\newblock {OSA}: An optical switching architecture for data center networks
-  with unprecedented flexibility.
-\newblock USENIX NSDI '12.
-
-\bibitem[Farrington et~al., 2010]{Farrington:2010:HHE:1851182.1851223}
-Farrington, N., Porter, G., Radhakrishnan, S., Bazzaz, H.~H., Subramanya, V.,
-  Fainman, Y., Papen, G., and Vahdat, A. (2010).
-\newblock Helios: a hybrid electrical/optical switch architecture for modular
-  data centers.
-\newblock ACM SIGCOMM '10.
-
-\bibitem[Greenberg et~al., 2009]{Greenberg:2009:VSF:1592568.1592576}
-Greenberg, A., Hamilton, J.~R., Jain, N., Kandula, S., Kim, C., Lahiri, P.,
-  Maltz, D.~A., Patel, P., and Sengupta, S. (2009).
-\newblock {VL2}: a scalable and flexible data center network.
-\newblock ACM SIGCOMM '09.
-
-\bibitem[Guo et~al., 2009]{Guo:2009:BHP:1592568.1592577}
-Guo, C., Lu, G., Li, D., Wu, H., Zhang, X., Shi, Y., Tian, C., Zhang, Y., and
-  Lu, S. (2009).
-\newblock {BCube}: a high performance, server-centric network architecture for
-  modular data centers.
-\newblock ACM SIGCOMM '09.
-
-\bibitem[Guo et~al., 2008]{Guo:2008:DSF:1402958.1402968}
-Guo, C., Wu, H., Tan, K., Shi, L., Zhang, Y., and Lu, S. (2008).
+\bibitem{Guo:2008:DSF:1402958.1402968}
+Chuanxiong Guo, Haitao Wu, Kun Tan, Lei Shi, Yongguang Zhang, and Songwu Lu.
 \newblock {DCell}: a scalable and fault-tolerant network structure for data
   centers.
-\newblock ACM SIGCOMM '08.
+\newblock ACM SIGCOMM '08, 2008.
 
-\bibitem[Halperin et~al., 2011]{Halperin:2011:ADC:2018436.2018442}
-Halperin, D., Kandula, S., Padhye, J., Bahl, P., and Wetherall, D. (2011).
-\newblock Augmenting data center networks with multi-gigabit wireless links.
-\newblock ACM SIGCOMM '11.
+\bibitem{Guo:2009:BHP:1592568.1592577}
+Chuanxiong Guo, Guohan Lu, Dan Li, Haitao Wu, Xuan Zhang, Yunfeng Shi, Chen
+  Tian, Yongguang Zhang, and Songwu Lu.
+\newblock {BCube}: a high performance, server-centric network architecture for
+  modular data centers.
+\newblock ACM SIGCOMM '09, 2009.
 
-\bibitem[Shin et~al., 2012]{Shin:2012:FCW:2396556.2396560}
-Shin, J.-Y., Sirer, E.~G., Weatherspoon, H., and Kirovski, D. (2012).
-\newblock On the feasibility of completely wireless datacenters.
-\newblock ACM ANCS '12.
+\bibitem{Al-Fares:2008:SCD:1402958.1402967}
+Mohammad Al-Fares, Alexander Loukissas, and Amin Vahdat.
+\newblock A scalable, commodity data center network architecture.
+\newblock ACM SIGCOMM '08, 2008.
 
-\bibitem[Wang et~al., 2010]{Wang:2010:CPO:1851182.1851222}
-Wang, G., Andersen, D.~G., Kaminsky, M., Papagiannaki, K., Ng, T.~E., Kozuch,
-  M., and Ryan, M. (2010).
+\bibitem{Greenberg:2009:VSF:1592568.1592576}
+Albert Greenberg, James~R. Hamilton, Navendu Jain, Srikanth Kandula, Changhoon
+  Kim, Parantap Lahiri, David~A. Maltz, Parveen Patel, and Sudipta Sengupta.
+\newblock {VL2}: a scalable and flexible data center network.
+\newblock ACM SIGCOMM '09, 2009.
+
+\bibitem{singla2012jellyfish}
+A.~Singla, C.Y. Hong, L.~Popa, and P.B. Godfrey.
+\newblock Jellyfish: Networking data centers randomly.
+\newblock USENIXACM NSDI '12. Association, 2012.
+
+\bibitem{Mudigonda:2011:NSM:2018436.2018444}
+Jayaram Mudigonda, Praveen Yalagandula, Jeff Mogul, Bryan Stiekes, and Yanick
+  Pouffary.
+\newblock {NetLord}: a scalable multi-tenant network architecture for
+  virtualized datacenters.
+\newblock ACM SIGCOMM '11, 2011.
+
+\bibitem{Ballani:2011:TPD:2018436.2018465}
+Hitesh Ballani, Paolo Costa, Thomas Karagiannis, and Ant Rowstron.
+\newblock Towards predictable datacenter networks.
+\newblock ACM SIGCOMM '11, 2011.
+
+\bibitem{Popa:2011:FSN:2070562.2070584}
+Lucian Popa, Arvind Krishnamurthy, Sylvia Ratnasamy, and Ion Stoica.
+\newblock {FairCloud}: sharing the network in cloud computing.
+\newblock ACM SIGCOMM '12, 2012.
+
+\bibitem{Wang:2010:CPO:1851182.1851222}
+Guohui Wang, David~G. Andersen, Michael Kaminsky, Konstantina Papagiannaki,
+  T.S.~Eugene Ng, Michael Kozuch, and Michael Ryan.
 \newblock {c-Through}: part-time optics in data centers.
-\newblock In {\em Proceedings of the ACM SIGCOMM 2010 conference}, ACM SIGCOMM
-  '10.
+\newblock ACM SIGCOMM '10, 2010.
 
-\bibitem[Zhou et~al., 2012]{Zhou:2012:MMC:2342356.2342440}
-Zhou, X., Zhang, Z., Zhu, Y., Li, Y., Kumar, S., Vahdat, A., Zhao, B.~Y., and
-  Zheng, H. (2012).
+\bibitem{Farrington:2010:HHE:1851182.1851223}
+Nathan Farrington, George Porter, Sivasankar Radhakrishnan, Hamid~Hajabdolali
+  Bazzaz, Vikram Subramanya, Yeshaiahu Fainman, George Papen, and Amin Vahdat.
+\newblock Helios: a hybrid electrical/optical switch architecture for modular
+  data centers.
+\newblock ACM SIGCOMM '10, 2010.
+
+\bibitem{chen2012osa}
+K.~Chen, A.~Singla, A.~Singh, K.~Ramachandran, L.~Xu, Y.~Zhang, X.~Wen, and
+  Y.~Chen.
+\newblock {OSA}: An optical switching architecture for data center networks
+  with unprecedented flexibility.
+\newblock USENIX NSDI '12, 2012.
+
+\bibitem{Halperin:2011:ADC:2018436.2018442}
+Daniel Halperin, Srikanth Kandula, Jitendra Padhye, Paramvir Bahl, and David
+  Wetherall.
+\newblock Augmenting data center networks with multi-gigabit wireless links.
+\newblock ACM SIGCOMM '11, 2011.
+
+\bibitem{Zhou:2012:MMC:2342356.2342440}
+Xia Zhou, Zengbin Zhang, Yibo Zhu, Yubo Li, Saipriya Kumar, Amin Vahdat, Ben~Y.
+  Zhao, and Haitao Zheng.
 \newblock Mirror mirror on the ceiling: flexible wireless links for data
   centers.
-\newblock ACM SIGCOMM '12.
+\newblock ACM SIGCOMM '12, 2012.
+
+\bibitem{Shin:2012:FCW:2396556.2396560}
+Ji-Yong Shin, Emin~G\"{u}n Sirer, Hakim Weatherspoon, and Darko Kirovski.
+\newblock On the feasibility of completely wireless datacenters.
+\newblock ACM ANCS '12, 2012.
+
+\bibitem{Chen:2010:GAA:1851182.1851190}
+Kai Chen, Chuanxiong Guo, Haitao Wu, Jing Yuan, Zhenqian Feng, Yan Chen, Songwu
+  Lu, and Wenfei Wu.
+\newblock Generic and automatic address configuration for data center networks.
+\newblock ACM SIGCOMM '10, 2010.
+
+\bibitem{NiranjanMysore:2009:PSF:1592568.1592575}
+Radhika Niranjan~Mysore, Andreas Pamboris, Nathan Farrington, Nelson Huang,
+  Pardis Miri, Sivasankar Radhakrishnan, Vikram Subramanya, and Amin Vahdat.
+\newblock {PortLand}: a scalable fault-tolerant layer 2 data center network
+  fabric.
+\newblock ACM SIGCOMM '09, 2009.
+
+\bibitem{Wu:2012:NAD:2342356.2342438}
+Xin Wu, Daniel Turner, Chao-Chih Chen, David~A. Maltz, Xiaowei Yang, Lihua
+  Yuan, and Ming Zhang.
+\newblock {NetPilot}: automating datacenter network failure mitigation.
+\newblock ACM SIGCOMM '12, 2012.
 
 \end{thebibliography}
