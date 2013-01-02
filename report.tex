@@ -162,15 +162,12 @@ Optical circuit switching technology has large bandwidth advantage over conventi
 %  \item artificially use an Ethernet switch to emulate the optical switch: accuracy
 %\end{enumerate}
 
-\textbf{"Helios: A Hybrid Electrical/Optical Switch Architecture for Modular Data Centers", SIGCOMM 2010}
+Unlike c-Through, Helios implements traffic estimation and demultiplexing on switches and requires no modifications to end hosts. The topology of Helios is multi-rooted tree in which core switches can be either electrical packet switches or optical circuit switches. The optical parts \textbf{add flexibility} to data centers which can get optimal trade-off of cost, power consumption, complexity and performance for a given set of workloads. In the evaluation of Helios, the authors disable the function of debouncing and Electronic Dispersion Compersation (EDC) to improve PHY throughput. But this will perhaps reduce the upper layer \textbf{Goodput} due to link insertion/removal and signal noise.
 
-the available bisection bandwidth is inflexible for predefined topology
-
-\begin{enumerate}
-  \item unlike c-Through, Helios requires no modifications to end hosts but only at switches
-  \item without debouncing and EDC will improve throughput, but will reduce goodput due to link insertion and signal noise?
-  \item unidirectional circuits can better adapt to asymmetric traffic demands
-\end{enumerate}
+%\begin{enumerate}
+%  \item without debouncing and EDC will improve throughput, but will reduce goodput due to link insertion and signal noise?
+%  \item unidirectional circuits can better adapt to asymmetric traffic demands
+%\end{enumerate}
 
 \textbf{"OSA: An Optical Switching Architecture for Data Center Networks with Unprecedented Flexibility", NSDI 2012}
 
