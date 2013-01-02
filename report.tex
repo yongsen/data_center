@@ -69,12 +69,12 @@ According to the architecture and topology in these papers, Data Center Networks
         \begin{enumerate}
         \item Jellyfish \cite{singla2012jellyfish}
         \end{enumerate}
-    \item Multi-tenant:
-        \begin{enumerate}
-        \item NetLord \cite{Mudigonda:2011:NSM:2018436.2018444}
-        \item Oktopus \cite{Ballani:2011:TPD:2018436.2018465}
-        \item FairCloud \cite{Popa:2011:FSN:2070562.2070584}
-        \end{enumerate}
+    %\item Multi-tenant:
+%        \begin{enumerate}
+%        \item NetLord \cite{Mudigonda:2011:NSM:2018436.2018444}
+%        \item Oktopus \cite{Ballani:2011:TPD:2018436.2018465}
+%        \item FairCloud \cite{Popa:2011:FSN:2070562.2070584}
+%        \end{enumerate}
   \end{enumerate}
   \item Flexible:
   \begin{enumerate}
@@ -101,6 +101,7 @@ These papers mainly discussed the issues of:
   \item Routing \cite{Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
   \item Scheduling \cite{Al-Fares:2008:SCD:1402958.1402967,Halperin:2011:ADC:2018436.2018442}
   \item Failure handling \cite{Chen:2010:GAA:1851182.1851190,NiranjanMysore:2009:PSF:1592568.1592575,Wu:2012:NAD:2342356.2342438}
+  \item Multi-tenant \cite{Mudigonda:2011:NSM:2018436.2018444,Ballani:2011:TPD:2018436.2018465,Popa:2011:FSN:2070562.2070584}
 \end{itemize}
 
 \subsection{Static-electrical Data Centers}
@@ -169,13 +170,11 @@ Unlike c-Through, Helios implements traffic estimation and demultiplexing on swi
 %  \item unidirectional circuits can better adapt to asymmetric traffic demands
 %\end{enumerate}
 
-\textbf{"OSA: An Optical Switching Architecture for Data Center Networks with Unprecedented Flexibility", NSDI 2012}
+The hybrid structure in OSA is an abstract model that captures key aspects of both c-Through and Helios. In addition, OSA can connect one ToR to multiple ToRs simultaneously and multi-hop connection exists between any pair of remote ToRs.
 
 \subsubsection{Wireless}
 
-\textbf{"Mirror Mirror on the Ceiling: Flexible Wireless Links for Data Centers", SIGCOMM 2012}
-
-Wireless Data Center is a new concept which should be explored further. Many issues such as interference, secluding, security, etc. should be standardized. On the other hand, the issues on cost, performance, energy-efficiency, reliability, etc. should be taken into consideration compared with electrical or optical data centers.
+Another solution for flexible data centers is 60GHz wireless links, but wireless data center is a new concept which should be explored further. Many issues such as interference, secluding, security, etc. should be standardized. On the other hand, the issues on cost, performance, energy-efficiency, reliability, etc. should be taken into consideration compared with electrical and optical data centers.
 
 %\begin{figure}[!t]
 %\centering
@@ -184,31 +183,11 @@ Wireless Data Center is a new concept which should be explored further. Many iss
 %\label{cylindrical}
 %\end{figure}
 
-\begin{enumerate}
-  \item electrical
-  \item optical
-  \item wireless
-  \begin{enumerate}
-    \item Link Blockage
-    \item Radio Interference
-  \end{enumerate}
-\end{enumerate}
+%Max concurrent links: Link conflicts (SINR); Greedy scheduling (graph coloring); Assigning radios.
 
-Max concurrent links: Link conflicts (SINR); Greedy scheduling (graph coloring); Assigning radios.
+Apart from the physical topology, the conflict graph should be measured when wireless links are introduced. For $N$ racks and $K$ antenna orientations, the input table of conflict graph is very \textbf{large} with the size of $(NK)^2$. On the other hand, the propagation conditions are similar, which means the conflict table is \textbf{sparse}. In addition to wireless propagation, upper layer link state should also be designed specifically for data center networks. Apart from the concurrent links characterized in \cite{Zhou:2012:MMC:2342356.2342440}, the \textbf{efficient throughput} should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance.
 
-Problems:
-\begin{itemize}
-  \item Apart from the concurrent links, the efficient throughput should be explored. For instance, although the concurrent links are more with larger ceiling height $h$, it can decrease the throughput according to the curves of RSS (or Data Rate) vs. distance as shown in Figure 5.
-\end{itemize}
-
-\textbf{"Augmenting Data Center Networks with Multi-gigabit Wireless Links", SIGCOMM 2011}
-
-"The base wired network is provisioned for the \textbf{average case} and can be oversubscribed. Each ToR switch is equipped withe one or more 60GHz wireless devices." "A central controller monitors DC \textbf{traffic patterns}, and switches the beams of the wireless devices to set up flyways between ToR switches that provide \textbf{added bandwidth} as needed." So it is ideal for \textbf{flexible and energy-efficient} data centers.
-
-Problems:
-\begin{itemize}
-  \item Conflict graph: for $N$ racks and $K$ antenna orientations, the input table is very \textbf{large} with the size of $(NK)^2$. On the other hand, the propagation conditions are similar, i.e., the table is \textbf{sparse}.
-\end{itemize}
+%"The base wired network is provisioned for the \textbf{average case} and can be oversubscribed. Each ToR switch is equipped withe one or more 60GHz wireless devices." "A central controller monitors DC \textbf{traffic patterns}, and switches the beams of the wireless devices to set up flyways between ToR switches that provide \textbf{added bandwidth} as needed." So it is ideal for \textbf{flexible and energy-efficient} data centers.
 
 \subsection{Other issues}
 
