@@ -197,7 +197,9 @@ When data centers are shared in the cloud, i.e., multi-tenant data centers, the 
 
 \subsubsection{Failure Handling}
 
-\textbf{"Generic and Automatic Address Configuration for Data Center Networks", SIGCOMM 2010}
+For large scale data centers, there is a fundamental problem of failure handling including detection, diagnosis and repair. NetPilot \cite{Wu:2012:NAD:2342356.2342438} presents an automated system to quickly mitigate failures before the diagnose and repair process. It takes advantage of \textbf{multi-level redundancy} to mitigate most types of failures by simple actions such as deactivation or restart.
+
+DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. 
 
 Basic Procedures:
 \begin{enumerate}
@@ -246,6 +248,8 @@ Compress Sensing
 according to the traffic measurement and analysis in VL2 and wireless flyways, traffic patterns and loads are dynamic and unpredictable. So demand response can be done by Lyapunov optimization for it only needs the information of current and previous state.
 
 \subsection{Capacity Scheduling}
+
+Multi-path provides extra selection of routing paths (just as over-provisioning)
 
 \subsection{Resource Allocation}
 
