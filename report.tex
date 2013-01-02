@@ -149,20 +149,18 @@ The architectures listed above have rigid structure that interferes with increme
 
 \subsubsection{Optical}
 
-\textbf{"OSA: An Optical Switching Architecture for Data Center Networks with Unprecedented Flexibility", NSDI 2012}
+Optical circuit switching technology has large bandwidth advantage over conventional packet switching, which provides suitable solution for data centers. But optical networking has \textbf{slow switching} that will increase the reconfiguration time, which remains as the main challenge for optical data centers. To take full advantage of high capacity of optical switching while ensure low latency, c-Through proposed a hybrid packet and circuit switched data center network architecture. Along with the hybrid architecture, it also makes demand estimation and traffic demultiplexing in end hosts. But it has high \textbf{configuration complexity} in separating the networks into packet/circuit-switch and the preconnection socket buffer. The socket buffers at end hosts also \textbf{increase the overhead} of traffic measurement and software programming. c-Through requires each host run a management daemon which further increases the system overhead. Finally, the authors use an Ethernet switch to emulate the optical switch and artificially restrict the communication and configuration, it will reduce the accuracy of evaluating the influence of optical's high latency.
 
-\textbf{"c-Through: Part-time Optics in Data Centers", SIGCOMM 2010}
-
-\begin{enumerate}
-  \item optical circuit switching: high bandwidth but large delay (low bisection bandwidth)
-  \item convert routing to multiplex
-  \item separating the networks of packet-switch and circuit-switch increases the configuration complexity
-  \item buffer adds overhead
-  \item buffer at end hosts but not switches: requires hosts be programmable
-  \item weighted perfect matching problem: take traffic loads and capacity into consideration
-  \item each host runs a management daemon: adds overhead
-  \item artificially use an Ethernet switch to emulate the optical switch: accuracy
-\end{enumerate}
+%\begin{enumerate}
+%  \item optical circuit switching: high bandwidth but large delay (low bisection bandwidth)
+%  \item convert routing to multiplex
+%  \item separating the networks of packet-switch and circuit-switch increases the configuration complexity
+%  \item buffer adds overhead
+%  \item buffer at end hosts but not switches: requires hosts be programmable
+%  \item weighted perfect matching problem: take traffic loads and capacity into consideration
+%  \item each host runs a management daemon: adds overhead
+%  \item artificially use an Ethernet switch to emulate the optical switch: accuracy
+%\end{enumerate}
 
 \textbf{"Helios: A Hybrid Electrical/Optical Switch Architecture for Modular Data Centers", SIGCOMM 2010}
 
@@ -173,6 +171,8 @@ the available bisection bandwidth is inflexible for predefined topology
   \item without debouncing and EDC will improve throughput, but will reduce goodput due to link insertion and signal noise?
   \item unidirectional circuits can better adapt to asymmetric traffic demands
 \end{enumerate}
+
+\textbf{"OSA: An Optical Switching Architecture for Data Center Networks with Unprecedented Flexibility", NSDI 2012}
 
 \subsubsection{Wireless}
 
