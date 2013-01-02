@@ -199,22 +199,22 @@ When data centers are shared in the cloud, i.e., multi-tenant data centers, the 
 
 For large scale data centers, there is a fundamental problem of failure handling including detection, diagnosis and repair. NetPilot \cite{Wu:2012:NAD:2342356.2342438} presents an automated system to quickly mitigate failures before the diagnose and repair process. It takes advantage of \textbf{multi-level redundancy} to mitigate most types of failures by simple actions such as deactivation or restart.
 
-DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. 
+DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. Since DAC is generally designed for different data center structures, it can be further developed for certain topologies. But DAC does not consider capacity matrix including differences in up- and down-link (directed graph), and in connections (weighted graph).
 
-Basic Procedures:
-\begin{enumerate}
-  \item O2 Mapping
-  \begin{enumerate}
-    \item Candidate selection via SPLD: \textbf{select} candidate with the same SPLD.
-    \item Candidate filtering via orbit: \textbf{skip} candidate with the same orbit, then $Decomposition()$.
-    \item Selective splitting $Refinement^*()$: \textbf{split} cells that really connect to the including cell.
-  \end{enumerate}
-  \item Malfunction Detection
-  \begin{enumerate}
-    \item Anchor pair selection:
-    \item Malfunction detection:
-  \end{enumerate}
-\end{enumerate}
+%Basic Procedures:
+%\begin{enumerate}
+%  \item O2 Mapping
+%  \begin{enumerate}
+%    \item Candidate selection via SPLD: \textbf{select} candidate with the same SPLD.
+%    \item Candidate filtering via orbit: \textbf{skip} candidate with the same orbit, then $Decomposition()$.
+%    \item Selective splitting $Refinement^*()$: \textbf{split} cells that really connect to the including cell.
+%  \end{enumerate}
+%  \item Malfunction Detection
+%  \begin{enumerate}
+%    \item Anchor pair selection:
+%    \item Malfunction detection:
+%  \end{enumerate}
+%\end{enumerate}
 
 Problems:
 \begin{enumerate}
@@ -225,10 +225,6 @@ Problems:
     \item only certain parts are changing in real-time operating (considering certain servers can be turned down for energy-efficiency and demand response).
   \end{enumerate}
 \end{enumerate}
-
-\textbf{"NetPilot: Automating Datacenter Network Failure Mitigation", SIGCOMM 2012}
-
-\textbf{"PortLand: A Scalable Fault-tolerant Layer 2 Data Center Network Fabric", SIGCOMM 2009}
 
 \section{Research Issues}
 
@@ -241,7 +237,46 @@ Problems:
   \item capacity differences in connections (weighted graph)
 \end{enumerate}
 
-Compress Sensing
+It is challenging to measure such a large scale topology graph which usually requires all-to-all communications. Since both traffic matrix \cite{Greenberg:2009:VSF:1592568.1592576,Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole account password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary.
+
+The requirements and reasons for Compress Sensing are:
+\begin{enumerate}
+  \item topology graphs are \textbf{large}, and so comes the requirement to reduce measuring and mapping overhead
+  \item wireless propagation and traffic demand have \textbf{dynamic} furthers, so the measurement is challenging
+  \item topology graphs are \textbf{sparse}, which is the prior condition for compress sensing
+  \item topology graphs only have \textbf{local changes} (errors, on-off or wireless) in real-time operating
+\end{enumerate}
+
+If the adjacency matrix of a given topology graph $G=(V,E)$ is $A^{N\times N}$, it can be represented by $N$ vertex $A_i$. Then the estimated matrix $\hat{y}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{n\times N} (n\ll N)$ as follows:
+\begin{equation}
+ y=\Phi A_i
+ \label{estimation}
+\end{equation}
+If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, the estimated results can be obtained by optimization
+\begin{equation}
+ min \parallel A_i-f(y) \parallel_{l_x}
+ \label{recover1}
+\end{equation}
+\begin{equation}
+ s.t.~~~~\Phi A_i = y
+ \label{recover2}
+\end{equation}
+where $l_x (x=0,1,2)$ are the norms of a vector, among which $l_1$ is usually used representing the number of non-zero coordinates. Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
+
+The topology that should be measured includes:
+\begin{itemize}
+  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings) \cite{Zhou:2012:MMC:2342356.2342440,Halperin:2011:ADC:2018436.2018442}
+  \item PAs $\rightarrow$ LAs
+  \item Traffic loads $\rightarrow$ Demands: the distribution of traffic loads has location differences across AAs and ToRs \cite{Halperin:2011:ADC:2018436.2018442,Greenberg:2009:VSF:1592568.1592576}
+\end{itemize}
+
+Topology changes due to:
+\begin{itemize}
+  \item Errors: nodes, links, miswiring
+  \item wireless linking (links)
+  \item Sleeping on-off (nodes)
+\end{itemize}
+
 
 \subsection{Demand Response}
 
