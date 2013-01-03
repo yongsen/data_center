@@ -152,7 +152,7 @@ To improve the efficiency of performance/cost, it requires data centers be flexi
 
 \subsubsection{Optical}
 
-Optical circuit switching technology has large bandwidth advantage over conventional packet switching, which provides suitable solution for data centers. But optical networking has \textbf{slow switching} that will increase the reconfiguration time, which remains as the main challenge for optical data centers. To take full advantage of high capacity of optical switching while ensure low latency, c-Through proposed a hybrid packet and circuit switched data center network architecture. Along with the hybrid architecture, it also makes demand estimation and traffic demultiplexing in end hosts. But it has high \textbf{configuration complexity} in separating the networks into packet/circuit-switch and the preconnection socket buffer. The socket buffers at end hosts also \textbf{increase the overhead} of traffic measurement and software programming. c-Through requires each host run a management daemon which further increases the system overhead. Finally, the authors use an Ethernet switch to emulate the optical switch and artificially restrict the communication and configuration, it will reduce the accuracy of evaluating the influence of optical's high latency.
+Optical circuit switching technology has large bandwidth advantage over conventional packet switching, which provides suitable solution for data centers. But optical networking has \textbf{slow switching} that will increase the reconfiguration time, which remains as the main challenge for optical data centers. To take full advantage of high capacity of optical switching while ensure low latency, c-Through proposed a hybrid packet and circuit switched data center network architecture. Along with the hybrid architecture, it also makes demand estimation and traffic demultiplexing in end hosts. But it has high \textbf{configuration complexity} in separating the networks into packet/circuit-switch and the preconnection socket buffer. The socket buffers at end hosts also \textbf{increase the overhead} of traffic measurement and software programming, and maybe increase the \textbf{queue latency}. c-Through requires each host run a management daemon which further increases the system overhead. Finally, the authors use an Ethernet switch to emulate the optical switch and artificially restrict the communication and configuration, it will reduce the accuracy of evaluating the influence of optical's high latency.
 
 %\begin{enumerate}
 %  \item optical circuit switching: high bandwidth but large delay (low bisection bandwidth)
@@ -203,7 +203,7 @@ Oktopus \cite{Ballani:2011:TPD:2018436.2018465} adopts virtual network abstracti
 
 For large scale data centers, there is a fundamental problem of failure handling including detection, diagnosis and repair. NetPilot \cite{Wu:2012:NAD:2342356.2342438} presents an automated system to quickly mitigate failures before the diagnose and repair process. It takes advantage of \textbf{multi-level redundancy} to mitigate most types of failures by simple actions such as deactivation or restart.
 
-DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. Since DAC is generally designed for different data center structures, it can be further developed for certain topologies. For instance, the autoconfiguration of DCell and BCube can be faster due to the recursive topology, and similar for symmetric structures. Maybe the initial selection of vertex $\nu\in\pi_p^i$ also has influence on the efficiency for recursive or symmetric topology. On the other hand, DAC does not consider the connection differences in up and down links (directed graph), and in capacity matrix (weighted graph). The flexible data centers will bring great challenges due to topology changes.
+DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. Since DAC is generally designed for different data center structures, it can be further developed for certain topologies. For instance, the autoconfiguration of DCell and BCube can be faster due to the recursive topology, and similar for symmetric structures. Maybe the initial selection of vertex $\nu\in\pi_p^i$ also has influence on the efficiency for recursive or symmetric topology. On the other hand, DAC does not consider the connection differences in up and down links (directed graph), and in capacity matrix (weighted graph). The flexible data centers will also bring great challenges to DAC due to topology changes and traffic multiplexing.
 
 %Basic Procedures:
 %\begin{enumerate}
@@ -231,6 +231,8 @@ DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping
 %\end{enumerate}
 
 \section{Research Issues}
+
+%Since optical switching and wireless flyways introduce many new features into data centers, along with 
 
 \subsection{Topology Measurement}
 
@@ -293,11 +295,11 @@ Under the stability constraint, we can design the path selection algorithm accor
 
 \subsection{Resource Allocation}
 
-Multi-path provides extra selection for routing, packet forwarding and capacity scheduling, which can serves as \textbf{link redundancy} \cite{Wu:2012:NAD:2342356.2342438} or \textbf{duplicately packet delivery} \cite{Guo:2009:BHP:1592568.1592577}. So there is a fundamental \textbf{trade-off between reliability and capacity} for multi-path routing. This is more challenging (perfect matching or edge coloring) for flexible and on-demand data centers.
+Multi-path provides extra selection for routing, packet forwarding and capacity scheduling, which can serves as \textbf{link redundancy} \cite{Wu:2012:NAD:2342356.2342438} or \textbf{duplicately packet delivery} \cite{Guo:2009:BHP:1592568.1592577}. So there is a fundamental \textbf{trade-off between reliability and capacity} (link redundancy and duplicately packet delivery) for multi-path routing. This is more challenging (perfect matching or edge coloring) for flexible and on-demand data centers.
 
 If packets (flows) are separately delivered through multiple paths, the physical throughput can be improved. But it needs more strict time synchronization to ensure accurate encoding results, since the length and state of concurrent paths are different. Moreover, the number of concurrent links should be optimized to improve the overall efficiency of performance/cost.
 
-On the other hand, flexible data centers provide multiplexing mechanism for path selection. Unlike multi-path delivery, flexible multiplexing seeks high link utilization and bandwidth efficiency. The trade-off generated by concurrent links still exists, and may be more complex due to topology changes.
+On the other hand, flexible data centers provide multiplexing mechanism for path selection. Unlike multi-path delivery, flexible multiplexing seeks high link utilization and bandwidth efficiency. The trade-off generated by concurrent links still exists, and may be more complex due to topology changes. Consideration the switching and queue latency,
 
 %high efficiency: good trade-off between reliability and capacity
 
