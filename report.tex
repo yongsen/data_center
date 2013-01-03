@@ -51,62 +51,62 @@
 
 \section{Literature Review}
 
-According to the architecture and topology in these papers, Data Center Networks can be divided into:
-\begin{enumerate}
-  \item Static-electrical:
-  \begin{enumerate}
-    \item Multi-layer tree:
-        \begin{enumerate}
-          \item Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}
-          \item VL2 \cite{Greenberg:2009:VSF:1592568.1592576}
-        \end{enumerate}
-    \item Server-centric:
-        \begin{enumerate}
-          \item DCell \cite{Guo:2008:DSF:1402958.1402968}
-          \item BCube \cite{Guo:2009:BHP:1592568.1592577}
-        \end{enumerate}
-    \item Random graph:
-        \begin{enumerate}
-        \item Jellyfish \cite{singla2012jellyfish}
-        \end{enumerate}
-    %\item Multi-tenant:
-%        \begin{enumerate}
-%        \item NetLord \cite{Mudigonda:2011:NSM:2018436.2018444}
-%        \item Oktopus \cite{Ballani:2011:TPD:2018436.2018465}
-%        \item FairCloud \cite{Popa:2011:FSN:2070562.2070584}
-%        \end{enumerate}
-  \end{enumerate}
-  \item Flexible:
-  \begin{enumerate}
-    \item Optical:
-    \begin{enumerate}
-      \item c-Through \cite{Wang:2010:CPO:1851182.1851222}
-      \item Helios \cite{Farrington:2010:HHE:1851182.1851223}
-      \item OSA \cite{chen2012osa}
-    \end{enumerate}
-    \item Wireless:
-    \begin{enumerate}
-      \item Wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}
-      \item 3D beamforming \cite{Zhou:2012:MMC:2342356.2342440}
-      \item Cylindrical racks \cite{Shin:2012:FCW:2396556.2396560}
-    \end{enumerate}
-  \end{enumerate}
-\end{enumerate}
-
-These papers mainly discussed the issues of:
+According to the architecture and topology in these papers, Data Center Networks can be divided into static-electrical and flexible data centers. The static-electrical data centers can be classified into multi-layer tree (Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}, VL2 \cite{Greenberg:2009:VSF:1592568.1592576}), server-centric (DCell \cite{Guo:2008:DSF:1402958.1402968}, BCube \cite{Guo:2009:BHP:1592568.1592577}) and random graph (Jellyfish \cite{singla2012jellyfish}). The flexible data centers have optical (c-Through \cite{Wang:2010:CPO:1851182.1851222}, Helios \cite{Farrington:2010:HHE:1851182.1851223}, OSA \cite{chen2012osa}) and wireless (Wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}, 3D beamforming \cite{Zhou:2012:MMC:2342356.2342440}, Cylindrical racks \cite{Shin:2012:FCW:2396556.2396560}) solutions. These papers mainly discussed the research issues including:
 \begin{itemize}
   \item Topology \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576,Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577,singla2012jellyfish}
-  \item Addressing \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576}
+  \item Addressing and Routing \cite{Al-Fares:2008:SCD:1402958.1402967,Greenberg:2009:VSF:1592568.1592576,Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577,singla2012jellyfish,NiranjanMysore:2009:PSF:1592568.1592575}
   \item Mapping \cite{Chen:2010:GAA:1851182.1851190,Greenberg:2009:VSF:1592568.1592576}
-  \item Routing \cite{Guo:2008:DSF:1402958.1402968,Guo:2009:BHP:1592568.1592577}
-  \item Scheduling \cite{Al-Fares:2008:SCD:1402958.1402967,Halperin:2011:ADC:2018436.2018442}
-  \item Failure handling \cite{Chen:2010:GAA:1851182.1851190,NiranjanMysore:2009:PSF:1592568.1592575,Wu:2012:NAD:2342356.2342438}
-  \item Multi-tenant \cite{Mudigonda:2011:NSM:2018436.2018444,Ballani:2011:TPD:2018436.2018465,Popa:2011:FSN:2070562.2070584}
+  \item Virtualization \cite{Greenberg:2009:VSF:1592568.1592576,Wang:2010:CPO:1851182.1851222,Ballani:2011:TPD:2018436.2018465,Mudigonda:2011:NSM:2018436.2018444,NiranjanMysore:2009:PSF:1592568.1592575}
+  \item Scheduling \cite{Al-Fares:2008:SCD:1402958.1402967,Halperin:2011:ADC:2018436.2018442,Wang:2010:CPO:1851182.1851222,Popa:2011:FSN:2070562.2070584}
+  \item Failure Handling \cite{Chen:2010:GAA:1851182.1851190,NiranjanMysore:2009:PSF:1592568.1592575,Wu:2012:NAD:2342356.2342438}
+  \item Multi-tenant Resource Allocation\cite{Mudigonda:2011:NSM:2018436.2018444,Ballani:2011:TPD:2018436.2018465,Popa:2011:FSN:2070562.2070584}
 \end{itemize}
+
+
+%\begin{enumerate}
+%  \item Static-electrical:
+%  \begin{enumerate}
+%    \item Multi-layer tree:
+%        \begin{enumerate}
+%          \item Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}
+%          \item VL2 \cite{Greenberg:2009:VSF:1592568.1592576}
+%        \end{enumerate}
+%    \item Server-centric:
+%        \begin{enumerate}
+%          \item DCell \cite{Guo:2008:DSF:1402958.1402968}
+%          \item BCube \cite{Guo:2009:BHP:1592568.1592577}
+%        \end{enumerate}
+%    \item Random graph:
+%        \begin{enumerate}
+%        \item Jellyfish \cite{singla2012jellyfish}
+%        \end{enumerate}
+%    %\item Multi-tenant:
+%%        \begin{enumerate}
+%%        \item NetLord \cite{Mudigonda:2011:NSM:2018436.2018444}
+%%        \item Oktopus \cite{Ballani:2011:TPD:2018436.2018465}
+%%        \item FairCloud \cite{Popa:2011:FSN:2070562.2070584}
+%%        \end{enumerate}
+%  \end{enumerate}
+%  \item Flexible:
+%  \begin{enumerate}
+%    \item Optical:
+%    \begin{enumerate}
+%      \item c-Through \cite{Wang:2010:CPO:1851182.1851222}
+%      \item Helios \cite{Farrington:2010:HHE:1851182.1851223}
+%      \item OSA \cite{chen2012osa}
+%    \end{enumerate}
+%    \item Wireless:
+%    \begin{enumerate}
+%      \item Wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}
+%      \item 3D beamforming \cite{Zhou:2012:MMC:2342356.2342440}
+%      \item Cylindrical racks \cite{Shin:2012:FCW:2396556.2396560}
+%    \end{enumerate}
+%  \end{enumerate}
+%\end{enumerate}
 
 \subsection{Static-electrical Data Centers}
 
-The traditional data centers are generally designed in static connection by electrical switches. For the issues of topology, routing and scheduling in these data centers, there are numerous researches in this field including Fat-tree \cite{Al-Fares:2008:SCD:1402958.1402967}, VL2 \cite{Greenberg:2009:VSF:1592568.1592576}, DCell \cite{Guo:2008:DSF:1402958.1402968}, BCube \cite{Guo:2009:BHP:1592568.1592577}, Jellyfish \cite{singla2012jellyfish}, etc. These work can be classified into multi-layer tree, server-centric and random graph according to the differences in topology graph, which also brings different advantages and disadvantages.
+The traditional data centers are generally designed in static connection by electrical switches. For the issues of topology, routing and scheduling in these data centers, there are numerous researches in this field including Fat-tree, VL2, DCell, BCube, Jellyfish, etc. These work can be classified into multi-layer tree, server-centric and random graph according to the differences in topology graph, which also brings different advantages and disadvantages.
 
 \subsubsection{Multi-layer Tree}
 
@@ -120,7 +120,7 @@ The multi-rooted tree topology has poor fault-tolerant features which make it ha
 
 \subsubsection{Server-centric}
 
-For server-centric data centers, all-to-all communication can be realized and the network can be incrementally expanded. DCell is a recursively defined structure which scales doubly exponentially as the node degree increases (ideal for large scale data centers). Furthermore, DCell is fault tolerant and can provide higher network capacity. But the bottleneck link locates in the low-level links and traffics are not balanced. Moreover, increment expansion requires additional ports which brings extra overhead and complexity.
+For server-centric data centers, all-to-all communication can be realized and the network can be incrementally expanded. DCell is a recursively defined structure which scales doubly exponentially as the node degree increases (ideal for large scale data centers). Furthermore, DCell is fault tolerant and can provide higher network capacity. But the bottleneck link locates in the low-level links and traffics are not balanced. Moreover, increment expansion \textbf{requires additional ports} which brings extra overhead and complexity.
 
 %Topology:
 %$n$ servers connected to a mini-switch within $DCell_0$, then $DCell_k$ is recursively generated by $t_{k-1}+1$ $DCell_{k-1}$s. The number of servers scales doubly exponentially as the node degree increases.
@@ -130,7 +130,7 @@ For server-centric data centers, all-to-all communication can be realized and th
 %
 %Routing: find the connection $(n_1,n_2)$ between $DCell$s, then find the paths of $src$ to $n_1$ and $n_2$ to $dst$. When failures occur, choosing \textit{proxy} to make local-reroute or jump-up (rack failure).
 
-BCube provides a similar server-centric solution for modular data centers, which has no performance bottlenecks and provides much higher network capacity. However, to connect certain number of servers, it needs more switches ($k$ times) and wiring is more complex which will increase the cabling cost. For BCube, the aggregate bottleneck throughput decreases gracefully under both server and switch failures, which means poor performance when incomplete units exit.
+BCube provides a similar server-centric solution for modular data centers, which has no performance bottlenecks and provides much higher network capacity. However, to connect certain number of servers, it needs more switches ($k$ times) and wiring is more complex which will \textbf{increase the cabling cost}. For BCube, the aggregate bottleneck throughput decreases gracefully under both server and switch failures, which means poor performance when incomplete units exist.
 
 In the multi-path routing and speedup forwarding of one-to-all communications, it needs \textbf{strict time synchronization}, and more importantly, brings the trade-off of reliability and capacity just as MIMO in wireless networks.
 
@@ -144,9 +144,11 @@ In the multi-path routing and speedup forwarding of one-to-all communications, i
 
 \subsubsection{Random Graph}
 
-The architectures listed above have rigid structure that interferes with incremental expansion. Jellyfish adopts random graph topology to address this problem, and also provides great flexibility in oversubscription design. But it brings challenging complexity to routing, wiring and maintaining.
+The architectures listed above have rigid structure that interferes with incremental expansion. Jellyfish adopts random graph topology to address this problem, and also provides great flexibility in oversubscription design. But it brings \textbf{challenging complexity} to routing, wiring and maintaining.
 
 \subsection{Flexible Data Centers}
+
+To improve the efficiency of performance/cost, it requires data centers be flexible which can respond to dynamic traffic loads. Currently, optical and wireless solutions are proposed to address this problem, and both methods can add flexibility to conventional data centers. Optical switching can provide higher bandwidth but suffers higher switching latency. Wireless flyway is easy to deploy but the physical layer interference and link layer protocol are challenging and need to be standardized.
 
 \subsubsection{Optical}
 
@@ -163,18 +165,18 @@ Optical circuit switching technology has large bandwidth advantage over conventi
 %  \item artificially use an Ethernet switch to emulate the optical switch: accuracy
 %\end{enumerate}
 
-Unlike c-Through, Helios implements traffic estimation and demultiplexing on switches and requires no modifications to end hosts. The topology of Helios is multi-rooted tree in which core switches can be either electrical packet switches or optical circuit switches. The optical parts \textbf{add flexibility} to data centers which can get optimal trade-off of cost, power consumption, complexity and performance for a given set of workloads. In the evaluation of Helios, the authors disable the function of debouncing and Electronic Dispersion Compersation (EDC) to improve PHY throughput. But this will perhaps reduce the upper layer \textbf{Goodput} due to link insertion/removal and signal noise.
+Unlike c-Through, Helios implements traffic estimation and demultiplexing on switches and requires no modifications to end hosts. The topology of Helios is multi-rooted tree in which core switches can be either electrical packet switches or optical circuit switches. The optical parts \textbf{add flexibility} to data centers which can get optimal trade-off of cost, power consumption, complexity and performance for a given set of workloads. In the evaluation of Helios, the authors disable the function of debouncing and Electronic Dispersion Compensation to improve PHY throughput. But this will perhaps reduce the upper layer \textbf{Goodput} due to link insertion/removal and signal noise.
 
 %\begin{enumerate}
 %  \item without debouncing and EDC will improve throughput, but will reduce goodput due to link insertion and signal noise?
 %  \item unidirectional circuits can better adapt to asymmetric traffic demands
 %\end{enumerate}
 
-The hybrid structure in OSA is an abstract model that captures key aspects of both c-Through and Helios. In addition, OSA can connect one ToR to multiple ToRs simultaneously and multi-hop connection exists between any pair of remote ToRs.
+The hybrid structure in OSA is an abstract model that captures key aspects of both c-Through and Helios. In addition, OSA can connect one ToR to multiple ToRs simultaneously and multi-hop connection exists between any pair of remote ToRs. Compared to hybrid structures including c-Through and Helios, OSA is more flexible and can provide higher bisection bandwidth.
 
 \subsubsection{Wireless}
 
-Another solution for flexible data centers is 60GHz wireless links, but wireless data center is a new concept which should be explored further. Many issues such as interference, secluding, security, etc. should be standardized. On the other hand, the issues on cost, performance, energy-efficiency, reliability, etc. should be taken into consideration compared with electrical and optical data centers.
+Another solution for flexible data centers is 60GHz wireless links, but wireless data center is a new concept which should be explored further. Many issues such as interference, secluding, security, etc. should be \textbf{standardized}. On the other hand, the issues on cost, performance, energy-efficiency, reliability, etc. should be taken into consideration compared with electrical and optical data centers.
 
 %\begin{figure}[!t]
 %\centering
@@ -193,13 +195,15 @@ Apart from the physical topology, the conflict graph should be measured when wir
 
 \subsubsection{Multi-tenant}
 
-When data centers are shared in the cloud, i.e., multi-tenant data centers, the resource allocation is challenging due to the variability of tenants, application types and traffic patterns. In addition to the optimization within data center networking, the cloud providers should also conduct scheduling between different tenants. Oktopus \cite{Ballani:2011:TPD:2018436.2018465} adopts virtual network abstractions to make prediction and allocation. NetLord \cite{Mudigonda:2011:NSM:2018436.2018444} also provides tenants with flexible network abstractions by fully and efficiently virtualization of he address at both layer 2 and 3. It requires only static configuration and local information, but it will increase the \textbf{reconfiguration complexity} when there is topology change which will occur frequently in flexible data centers. FairCloud \cite{Popa:2011:FSN:2070562.2070584} exposes the fundamental trade-offs in multi-tenant data centers and develops a set of resource allocation policies to best navigate these trade-offs. It allocates the bandwidth according to the number of VMs rather than the number of flows, sources, or source destination pairs. But the proportional allocation of link sharing is difficult in practical implementation.
+When data centers are shared in the cloud, i.e., multi-tenant data centers, the resource allocation is challenging due to the variability of tenants, application types and traffic patterns. In addition to the optimization within data center networking, the cloud providers should also conduct scheduling between different tenants.
+
+Oktopus \cite{Ballani:2011:TPD:2018436.2018465} adopts virtual network abstractions to make prediction and allocation. NetLord \cite{Mudigonda:2011:NSM:2018436.2018444} also provides tenants with flexible network abstractions by fully and efficiently virtualization of he address at both layer 2 and 3. It requires only static configuration and local information, but it will increase the \textbf{reconfiguration complexity} when there is topology change which will occur frequently in flexible data centers. FairCloud \cite{Popa:2011:FSN:2070562.2070584} exposes the fundamental trade-offs in multi-tenant data centers and develops a set of resource allocation policies to best navigate these trade-offs. It allocates the bandwidth according to the number of VMs rather than the number of flows, sources, or source destination pairs. But the proportional allocation of link sharing is difficult in practical implementation.
 
 \subsubsection{Failure Handling}
 
 For large scale data centers, there is a fundamental problem of failure handling including detection, diagnosis and repair. NetPilot \cite{Wu:2012:NAD:2342356.2342438} presents an automated system to quickly mitigate failures before the diagnose and repair process. It takes advantage of \textbf{multi-level redundancy} to mitigate most types of failures by simple actions such as deactivation or restart.
 
-DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. Since DAC is generally designed for different data center structures, it can be further developed for certain topologies. But DAC does not consider capacity matrix including differences in up- and down-link (directed graph), and in connections (weighted graph).
+DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping with low time complexity by leveraging the properties of topology graph, and it can also help to efficiently detect errors such as link failures and miswirings. Since DAC is generally designed for different data center structures, it can be further developed for certain topologies. For instance, the autoconfiguration of DCell and BCube can be faster due to the recursive topology, and similar for symmetric structures. Maybe the initial selection of vertex $\nu\in\pi_p^i$ also has influence on the efficiency for recursive or symmetric topology. On the other hand, DAC does not consider the connection differences in up and down links (directed graph), and in capacity matrix (weighted graph). The flexible data centers will bring great challenges due to topology changes.
 
 %Basic Procedures:
 %\begin{enumerate}
@@ -216,203 +220,210 @@ DAC \cite{Chen:2010:GAA:1851182.1851190} presents fast device-to-logical mapping
 %  \end{enumerate}
 %\end{enumerate}
 
-Problems:
-\begin{enumerate}
-  \item Initial selection of vertex $\nu\in\pi_p^i$
-  \item Whether it can be resolved by Compress Sensing?
-  \begin{enumerate}
-    \item the topology graphs are sparse.
-    \item only certain parts are changing in real-time operating (considering certain servers can be turned down for energy-efficiency and demand response).
-  \end{enumerate}
-\end{enumerate}
+%Problems:
+%\begin{enumerate}
+%  \item Initial selection of vertex $\nu\in\pi_p^i$
+%  \item Whether it can be resolved by Compress Sensing?
+%  \begin{enumerate}
+%    \item the topology graphs are sparse.
+%    \item only certain parts are changing in real-time operating (considering certain servers can be turned down for energy-efficiency and demand response).
+%  \end{enumerate}
+%\end{enumerate}
 
 \section{Research Issues}
 
-\subsection{Topology Control}
+\subsection{Topology Measurement}
 
-\begin{enumerate}
-  \item topology graph is large and sparse
-  \item topology graph is changing due to errors, multiplexing and demand response
-  \item capacity differences in up- and down-link (directional graph)
-  \item capacity differences in connections (weighted graph)
-\end{enumerate}
-
-It is challenging to measure such a large scale topology graph which usually requires all-to-all communications. Since both traffic matrix \cite{Greenberg:2009:VSF:1592568.1592576,Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole account password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary.
+It is challenging to measure such a large scale topology graph which usually requires all-to-all communications. It is even more hard due to the uncertain connections for flexible data centers. Since both traffic matrix \cite{Greenberg:2009:VSF:1592568.1592576,Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole account password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary.
 
 The requirements and reasons for Compress Sensing are:
 \begin{enumerate}
   \item topology graphs are \textbf{large}, and so comes the requirement to reduce measuring and mapping overhead
   \item wireless propagation and traffic demand have \textbf{dynamic} furthers, so the measurement is challenging
   \item topology graphs are \textbf{sparse}, which is the prior condition for compress sensing
-  \item topology graphs only have \textbf{local changes} (errors, on-off or wireless) in real-time operating
+  \item topology graphs only have \textbf{local changes} (errors, on-off or flexible switching) in real-time operating
 \end{enumerate}
 
-If the adjacency matrix of a given topology graph $G=(V,E)$ is $A^{N\times N}$, it can be represented by $N$ vertex $A_i$. Then the estimated matrix $\hat{y}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{n\times N} (n\ll N)$ as follows:
+If the adjacency matrix of a given topology graph $G=(V,E)$ is $A^{N\times N}$, it can be represented by $N$ vertex $A_i$. Then the estimated matrix $y\in \textbf{R}^n$ can be calculated as follows:
 \begin{equation}
  y=\Phi A_i
  \label{estimation}
 \end{equation}
-If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, the estimated results can be obtained by optimization
+where $\Phi\in \textbf{R}^{n\times N} (n\ll N)$ is the measure matrix. The dimension of $y$ is reduced to only $n$ which requires less samples. If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, the estimated results can be obtained by optimization
 \begin{equation}
- min \parallel A_i-f(y) \parallel_{l_x}
+\min \parallel A_i-f(y) \parallel_{l_x}
  \label{recover1}
 \end{equation}
 \begin{equation}
  s.t.~~~~\Phi A_i = y
  \label{recover2}
 \end{equation}
-where $l_x (x=0,1,2)$ are the norms of a vector, among which $l_1$ is usually used representing the number of non-zero coordinates. Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
+where $l_x (x=0,1,2)$ are the norms of a vector, among which $l_1$ is usually used representing the number of non-zero coordinates. Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead.
 
-The topology that should be measured includes:
-\begin{itemize}
-  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings) \cite{Zhou:2012:MMC:2342356.2342440,Halperin:2011:ADC:2018436.2018442}
-  \item PAs $\rightarrow$ LAs
-  \item Traffic loads $\rightarrow$ Demands: the distribution of traffic loads has location differences across AAs and ToRs \cite{Halperin:2011:ADC:2018436.2018442,Greenberg:2009:VSF:1592568.1592576}
-\end{itemize}
+The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic matrix can be measured in this way according to the measurement results in VL2 \cite{Greenberg:2009:VSF:1592568.1592576} and wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}.
 
-Topology changes due to:
-\begin{itemize}
-  \item Errors: nodes, links, miswiring
-  \item wireless linking (links)
-  \item Sleeping on-off (nodes)
-\end{itemize}
+%The topology that should be measured includes:
+%\begin{itemize}
+%  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings) \cite{Zhou:2012:MMC:2342356.2342440,Halperin:2011:ADC:2018436.2018442}
+%  \item PAs $\rightarrow$ LAs
+%  \item Traffic loads $\rightarrow$ Demands: the distribution of traffic loads has location differences across AAs and ToRs \cite{Halperin:2011:ADC:2018436.2018442,Greenberg:2009:VSF:1592568.1592576}
+%\end{itemize}
+%
+%Topology changes due to:
+%\begin{itemize}
+%  \item Errors: nodes, links, miswiring
+%  \item wireless linking (links)
+%  \item Sleeping on-off (nodes)
+%\end{itemize}
 
 
 \subsection{Demand Response}
 
-according to the traffic measurement and analysis in VL2 and wireless flyways, traffic patterns and loads are dynamic and unpredictable. So demand response can be done by Lyapunov optimization for it only needs the information of current and previous state.
-
-\subsection{Capacity Scheduling}
-
-Multi-path provides extra selection of routing paths (just as over-provisioning)
+According to the traffic measurement and analysis in VL2 \cite{Greenberg:2009:VSF:1592568.1592576} and wireless flyways \cite{Halperin:2011:ADC:2018436.2018442}, traffic patterns and loads are dynamic and unpredictable. So demand response can be done by Lyapunov optimization for it only needs the information of current and previous state. Let $Q[t]$ represent the queue backlog at the beginning of slot $t$, and $D[t]$ denote the size of incoming data, i.e., \textbf{demand matrix}, then the queue backlog evolving over time is
+\begin{equation}
+ Q[t+1]=Q[t]-\mu[t]+D[t],
+ \label{queue}
+\end{equation}
+where $\mu[t]$ is the amount of data transferred during slot $t$, which can be modeled by the function of \textbf{transmit state, topology graph, capacity matrix}, etc. Then the queue $Q[t]$ is defined stable if
+\begin{equation}
+ \overline{Q}=\limsup_{t\rightarrow\infty}\frac{1}{t}\sum_{\tau=0}^{t-1}E\{Q[\tau]\}<\infty.
+ \label{stable}
+\end{equation}
+Under the stability constraint, we can design the path selection algorithm according to the measurement results of topology graph, capacity matrix and demand matrix.
 
 \subsection{Resource Allocation}
 
-high efficiency: good trade-off between reliability and capacity
+Multi-path provides extra selection for routing, packet forwarding and capacity scheduling, which can serves as \textbf{link redundancy} \cite{Wu:2012:NAD:2342356.2342438} or \textbf{duplicately packet delivery} \cite{Guo:2009:BHP:1592568.1592577}. So there is a fundamental \textbf{trade-off between reliability and capacity} for multi-path routing. This is more challenging (perfect matching or edge coloring) for flexible and on-demand data centers.
 
-\section{Motivation}
+If packets (flows) are separately delivered through multiple paths, the physical throughput can be improved. But it needs more strict time synchronization to ensure accurate encoding results, since the length and state of concurrent paths are different. Moreover, the number of concurrent links should be optimized to improve the overall efficiency of performance/cost.
 
-With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for the specific feature of topology and services.
+On the other hand, flexible data centers provide multiplexing mechanism for path selection. Unlike multi-path delivery, flexible multiplexing seeks high link utilization and bandwidth efficiency. The trade-off generated by concurrent links still exists, and may be more complex due to topology changes.
 
-\begin{figure}[!htp]
-\centerline{
-    \subfloat[Provisioning for peak load]{
-    \includegraphics[width=0.33\textwidth]{capacity.pdf}
-    \label{peak}
-    }
-    \subfloat[Fixed underprovisioning]{
-    \includegraphics[width=0.33\textwidth]{capacity1.pdf}
-    \label{under}
-    }
-    \subfloat[Flexible underprovisioning]{
-    \includegraphics[width=0.33\textwidth]{capacity2.pdf}
-    \label{under_wireless}
-    }
-}
-\caption{Capacity provisioning based on traffic loads}
-\label{provisioning}
-\end{figure}
+%high efficiency: good trade-off between reliability and capacity
 
-Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
-
-The wireless-flexible data centers are generally composed of:
-\begin{enumerate}
-  \item Topology and Addressing:
-  \begin{enumerate}
-    \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
-    \item Topology Graph: Physical-specific ID Addresses (PAs), Logical-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
-        \begin{enumerate}
-        \item PAs: providing distance information for 3D Beamforming
-        \item LAs: providing topology information for Capacity Adaption
-        \item AAs: providing traffic information for Demand Response
-        \end{enumerate}
-  \end{enumerate}
-  \item Routing and Scheduling:
-  \begin{enumerate}
-    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to PAs
-    \item Demand Response: traffic estimation according to AAs
-    \item Capacity Adaption: capacity scheduling according to LAs
-  \end{enumerate}
-\end{enumerate}
-
-\section{Methodology}
-
-The problems of topology control, addressing, routing, and scheduling also exit in traditional data centers, but it brings new challenges when wireless links are introduced. For instance, the topology graph is changing due to wireless links and on-demand response. Also, the capacity matrix and conflict graph of wireless links are closely related to the relative locations of servers, e.g., capacity of 6G for neighbor servers and 1/2G for non-neighbor servers. Furthermore, the measurement and mapping of topology graph, conflict graph and traffic loads is challenging for large scale data centers.
-
-\begin{figure}[!htp]
-\centering
-\includegraphics[width=0.8\textwidth]{framework.pdf}
-\caption{Framework of flexible data centers based on 60GHz wireless networks}
-\label{framework}
-\end{figure}
-
-Considering the scale of topology (conflict/topology graph and different addresses) and multi-layer scheduling (physical topology, capacity matrix and traffic patterns), we can employ \textbf{Compress Sensing} and \textbf{Logical Addressing} to address these problems.
-
-\textbf{Topology:} multi-layer tree topology such as Fat-tree and VL2 (or cylindrical racks housing pie-shaped servers \cite{Shin:2012:FCW:2396556.2396560}) with ToRs.
-
-\textbf{Addressing:} changing according to topology, PAs and AAs should be mapped to LAs to make 3D beamforming, demand response and capacity scheduling.
-
-\textbf{Scheduling:} when the capacity matrix and traffic demands are mapped to LAs, we can determine the scheduling strategy including 3D beamforming and routing paths.
-
-
-\subsection{Compress Sensing}
-
-The conflict graph can be classified into the topology graph, since it represents the wireless connections which provide additional 1/2/6G capacity for different ToRs. It is challenging to measure such a large scale topology graph (PAs and AAs) which usually requires all-to-all communications. Since both conflict graph \cite{Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole account password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary.
-
-The requirements and reasons for Compress Sensing are:
-\begin{enumerate}
-  \item topology graphs are \textbf{large}, and so comes the requirement to reduce measuring and mapping overhead
-  \item wireless propagation and traffic demand have \textbf{dynamic} furthers, so the measurement is challenging
-  \item topology graphs are \textbf{sparse}, which is the prior condition for compress sensing
-  \item topology graphs only have \textbf{local changes} (errors, on-off or wireless) in real-time operating
-\end{enumerate}
-
-If the adjacency matrix of a given topology graph $G=(V,E)$ is $A^{N\times N}$, it can be represented by $N$ vertex $A_i$. Then the estimated matrix $\hat{y}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{n\times N} (n\ll N)$ as follows:
-\begin{equation}
- y=\Phi A_i
- \label{estimation}
-\end{equation}
-If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, the estimated results can be obtained by optimization
-\begin{equation}
- min \parallel A_i-f(y) \parallel_{l_x}
- \label{recover1}
-\end{equation}
-\begin{equation}
- s.t.~~~~\Phi A_i = y
- \label{recover2}
-\end{equation}
-where $l_x (x=0,1,2)$ are the norms of a vector, among which $l_1$ is usually used representing the number of non-zero coordinates. Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
-
-The topology that should be measured includes:
-\begin{itemize}
-  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings) \cite{Zhou:2012:MMC:2342356.2342440,Halperin:2011:ADC:2018436.2018442}
-  \item PAs $\rightarrow$ LAs
-  \item Traffic loads $\rightarrow$ Demands: the distribution of traffic loads has location differences across AAs and ToRs \cite{Halperin:2011:ADC:2018436.2018442,Greenberg:2009:VSF:1592568.1592576}
-\end{itemize}
-
-Topology changes due to:
-\begin{itemize}
-  \item Errors: nodes, links, miswiring
-  \item wireless linking (links)
-  \item Sleeping on-off (nodes)
-\end{itemize}
-
-\subsection{Logical Addressing}
-
-Wireless links make data centers flexible, i.e., using topology control and capacity scheduling to make resource allocation responding to traffic patterns and requirements. So the problem is how to allocate wireless links to deal with the problem of demand response when topology graphs are changing. The capacity matrix is composed of wired and wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), which can be obtained by PAs:
-\begin{itemize}
-  \item wired 10G
-  \item wireless direct 6G
-  \item wireless indirect 1/2G
-\end{itemize}
-
-Then the PAs (conflict and topology graphs) and demands estimation (AAs) can be mapped to LAs:
-\begin{itemize}
-  \item PA to LA for 3D Beamforming
-  \item AA to LA for Traffic estimation
-\end{itemize}
-
-When the topology graph and traffic demands are mapped to LAs, the capacity scheduling can be made responding to dynamic traffic loads. First, we can get the whole capacity matrix according to propagation table and topology graph. Second, greedy choice of flyways can be made according to capacity matrix an traffic demands. Finally, we can make wireless linking by direct or indirect beamforming if necessary, and make routing and scheduling further.
+%\section{Motivation}
+%
+%With the increasing demand of traffic loads and user requirements, it is a great challenge to make data centers agile and energy-efficient. A basic solution is to allow dynamic resource allocation based on flexible data center networks. The recent development of 60GHz wireless technology opens a door for the deployment of flexible data centers. It provides a good choice of adding capacity to data centers with under-provisioning capacity design. However, this will lead to new problems such as topology control and capacity scheduling, apart from the wireless propagation and link adaption in wireless networks. The PHY and MAC standardization of 60GHz networks is still ongoing (WirelessHD and IEEE 802.11ad/WiGig), its application in data centers should be further explored for the specific feature of topology and services.
+%
+%\begin{figure}[!htp]
+%\centerline{
+%    \subfloat[Provisioning for peak load]{
+%    \includegraphics[width=0.33\textwidth]{capacity.pdf}
+%    \label{peak}
+%    }
+%    \subfloat[Fixed underprovisioning]{
+%    \includegraphics[width=0.33\textwidth]{capacity1.pdf}
+%    \label{under}
+%    }
+%    \subfloat[Flexible underprovisioning]{
+%    \includegraphics[width=0.33\textwidth]{capacity2.pdf}
+%    \label{under_wireless}
+%    }
+%}
+%\caption{Capacity provisioning based on traffic loads}
+%\label{provisioning}
+%\end{figure}
+%
+%Generally, the capacity of data centers is designed for peak loads, as shown in Figure \ref{peak}, but the resources will be wasted during non-peak times \cite{Armbrust:2010:VCC:1721654.1721672}. On the other hand, if the capacity is designed in under-provisioning case as shown in Figure \ref{under}, the peak requirements can not be satisfied, leading to potential revenue sacrifice or over-occupied errors. To address these problems, we can employ flexible capacity and dynamic demand response, i.e., 60GHz wireless linking to add capacity for peak loads and sleeping mechanism to improve performance/cost efficiency, as shown in Figure \ref{under_wireless}.
+%
+%The wireless-flexible data centers are generally composed of:
+%\begin{enumerate}
+%  \item Topology and Addressing:
+%  \begin{enumerate}
+%    \item Conflict Graph: Propagation table (wireless), capacity matrix (wired/wireless) and traffic loads table (wired/wireless)
+%    \item Topology Graph: Physical-specific ID Addresses (PAs), Logical-specific IP Addresses (LAs) and Application-specific IP Addresses (AAs)
+%        \begin{enumerate}
+%        \item PAs: providing distance information for 3D Beamforming
+%        \item LAs: providing topology information for Capacity Adaption
+%        \item AAs: providing traffic information for Demand Response
+%        \end{enumerate}
+%  \end{enumerate}
+%  \item Routing and Scheduling:
+%  \begin{enumerate}
+%    \item 3D Beamforming: adding additional capacity to neighbor ToRs according to PAs
+%    \item Demand Response: traffic estimation according to AAs
+%    \item Capacity Adaption: capacity scheduling according to LAs
+%  \end{enumerate}
+%\end{enumerate}
+%
+%\section{Methodology}
+%
+%The problems of topology control, addressing, routing, and scheduling also exit in traditional data centers, but it brings new challenges when wireless links are introduced. For instance, the topology graph is changing due to wireless links and on-demand response. Also, the capacity matrix and conflict graph of wireless links are closely related to the relative locations of servers, e.g., capacity of 6G for neighbor servers and 1/2G for non-neighbor servers. Furthermore, the measurement and mapping of topology graph, conflict graph and traffic loads is challenging for large scale data centers.
+%
+%\begin{figure}[!htp]
+%\centering
+%\includegraphics[width=0.8\textwidth]{framework.pdf}
+%\caption{Framework of flexible data centers based on 60GHz wireless networks}
+%\label{framework}
+%\end{figure}
+%
+%Considering the scale of topology (conflict/topology graph and different addresses) and multi-layer scheduling (physical topology, capacity matrix and traffic patterns), we can employ \textbf{Compress Sensing} and \textbf{Logical Addressing} to address these problems.
+%
+%\textbf{Topology:} multi-layer tree topology such as Fat-tree and VL2 (or cylindrical racks housing pie-shaped servers \cite{Shin:2012:FCW:2396556.2396560}) with ToRs.
+%
+%\textbf{Addressing:} changing according to topology, PAs and AAs should be mapped to LAs to make 3D beamforming, demand response and capacity scheduling.
+%
+%\textbf{Scheduling:} when the capacity matrix and traffic demands are mapped to LAs, we can determine the scheduling strategy including 3D beamforming and routing paths.
+%
+%
+%\subsection{Compress Sensing}
+%
+%The conflict graph can be classified into the topology graph, since it represents the wireless connections which provide additional 1/2/6G capacity for different ToRs. It is challenging to measure such a large scale topology graph (PAs and AAs) which usually requires all-to-all communications. Since both conflict graph \cite{Halperin:2011:ADC:2018436.2018442} and topology graph \cite{Chen:2010:GAA:1851182.1851190} are sparse, we can utilize Compress Sensing to reduce overhead, just as the famous example that using only 3 out of 10 words can reconstruct the whole account password. In this way, we can use small number of samples to get the topology so that all-to-all communications are not necessary.
+%
+%The requirements and reasons for Compress Sensing are:
+%\begin{enumerate}
+%  \item topology graphs are \textbf{large}, and so comes the requirement to reduce measuring and mapping overhead
+%  \item wireless propagation and traffic demand have \textbf{dynamic} furthers, so the measurement is challenging
+%  \item topology graphs are \textbf{sparse}, which is the prior condition for compress sensing
+%  \item topology graphs only have \textbf{local changes} (errors, on-off or wireless) in real-time operating
+%\end{enumerate}
+%
+%If the adjacency matrix of a given topology graph $G=(V,E)$ is $A^{N\times N}$, it can be represented by $N$ vertex $A_i$. Then the estimated matrix $\hat{y}\in \textbf{R}^n$ can be calculated through the measure matrix $\Phi\in \textbf{R}^{n\times N} (n\ll N)$ as follows:
+%\begin{equation}
+% y=\Phi A_i
+% \label{estimation}
+%\end{equation}
+%If the measured data is recovered through $\hat{A_i}=f(y)=\Psi y=\Psi\Phi A_i$, the estimated results can be obtained by optimization
+%\begin{equation}
+% min \parallel A_i-f(y) \parallel_{l_x}
+% \label{recover1}
+%\end{equation}
+%\begin{equation}
+% s.t.~~~~\Phi A_i = y
+% \label{recover2}
+%\end{equation}
+%where $l_x (x=0,1,2)$ are the norms of a vector, among which $l_1$ is usually used representing the number of non-zero coordinates. Then $y$ can be easily measured and $A$ can be reconstructed through $y$ if the measure and reconstruct matrix ($\Phi$ and $\Psi$) are suitably designed. Therefore, all-to-all communications are not required which can help to reduce the measurement overhead. The topology graph can be estimated by Compress Sensing due to its large-scale and sparse feature. Furthermore, the propagation table and traffic loads can be measured in this way according to the measurement results in \cite{Halperin:2011:ADC:2018436.2018442} and \cite{Greenberg:2009:VSF:1592568.1592576}.
+%
+%The topology that should be measured includes:
+%\begin{itemize}
+%  \item Propagation table $\rightarrow$ Capacity matrix: the curve is quite certain for high frequency at near distance (do not consider PHY and MAC settings) \cite{Zhou:2012:MMC:2342356.2342440,Halperin:2011:ADC:2018436.2018442}
+%  \item PAs $\rightarrow$ LAs
+%  \item Traffic loads $\rightarrow$ Demands: the distribution of traffic loads has location differences across AAs and ToRs \cite{Halperin:2011:ADC:2018436.2018442,Greenberg:2009:VSF:1592568.1592576}
+%\end{itemize}
+%
+%Topology changes due to:
+%\begin{itemize}
+%  \item Errors: nodes, links, miswiring
+%  \item wireless linking (links)
+%  \item Sleeping on-off (nodes)
+%\end{itemize}
+%
+%\subsection{Logical Addressing}
+%
+%Wireless links make data centers flexible, i.e., using topology control and capacity scheduling to make resource allocation responding to traffic patterns and requirements. So the problem is how to allocate wireless links to deal with the problem of demand response when topology graphs are changing. The capacity matrix is composed of wired and wireless links (direct links between neighbor nodes or 3D beamforming for remote nodes), which can be obtained by PAs:
+%\begin{itemize}
+%  \item wired 10G
+%  \item wireless direct 6G
+%  \item wireless indirect 1/2G
+%\end{itemize}
+%
+%Then the PAs (conflict and topology graphs) and demands estimation (AAs) can be mapped to LAs:
+%\begin{itemize}
+%  \item PA to LA for 3D Beamforming
+%  \item AA to LA for Traffic estimation
+%\end{itemize}
+%
+%When the topology graph and traffic demands are mapped to LAs, the capacity scheduling can be made responding to dynamic traffic loads. First, we can get the whole capacity matrix according to propagation table and topology graph. Second, greedy choice of flyways can be made according to capacity matrix an traffic demands. Finally, we can make wireless linking by direct or indirect beamforming if necessary, and make routing and scheduling further.
 
 \renewcommand\refname{References}
 %\bibliographystyle{alpha}
