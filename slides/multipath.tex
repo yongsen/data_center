@@ -216,9 +216,9 @@
 %\node[anchor=north east] at (current page.north east) {\includegraphics[height=0.9cm]{SJTUW.pdf}};
 %\end{tikzpicture}}
 
-\begin{frame}
-  \titlepage
-\end{frame}
+%\begin{frame}
+%  \titlepage
+%\end{frame}
 %
 %\begin{frame}{Outline}
 %  \tableofcontents
@@ -253,12 +253,18 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Mtlti-path TCP in Data Centers}
-\begin{block}{Failures handling technics}
+\begin{frame}{Failures handling and Multi-path TCP}
+\begin{block}{Failures handling technologies}
 \begin{itemize}
-  \item Flow backup: T(2,2) $\rightarrow$ T(1,1)
-  \item Flexible switching: 10G $\rightarrow$ 20G
+  \item \textbf{Flow backup} reduces the overhead of drops and retransmission: T(2,2) $\rightarrow$ T(1,1).
+  \item \textbf{Flexible switching} improves the capacity and reduces the delay: 10G $\rightarrow$ 20G, decoding after $\rightarrow$ as transmitting.
+\end{itemize}
+\end{block}
+\begin{block}{Multi-path TCP technologies}
+\begin{itemize}
   \item Block ACK: congestion control
+  \item 
+  \item 
 \end{itemize}
 \end{block}
 \end{frame}
