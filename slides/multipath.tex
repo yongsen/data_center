@@ -253,20 +253,30 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Failures handling and Multi-path TCP}
+\begin{frame}{Failures handling and Multi-path TCP}{Basic Procedures}
+\begin{enumerate}
+  \item Split flow(s) into subflows
+  \item Congestion control by block ACK
+  \item Add premix to subflows
+  \item Transmit subflows
+  \item Decoding according to premix and delay (failures occur)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Failures handling and Multi-path TCP}{Adopted Technologies}
 \begin{block}{Failures handling technologies}
 \begin{itemize}
   \item \textbf{Flow backup} reduces the overhead of drops and retransmission: T(2,2) $\rightarrow$ T(1,1).
-  \item \textbf{Flexible switching} improves the capacity and reduces the delay: 10G $\rightarrow$ 20G, decoding after $\rightarrow$ as transmitting.
+  \item \textbf{Flexible switching} improves the capacity and reduces the delay: 10G $\rightarrow$ 20G, decoding after transmit $\rightarrow$ as transmitting.
 \end{itemize}
 \end{block}
 \begin{block}{Multi-path TCP technologies}
 \begin{itemize}
-  \item Block ACK: congestion control
-  \item 
+  \item \textbf{Block ACK} reduces extra overhead: ACK/subflow $\rightarrow$ ACK/block
   \item 
 \end{itemize}
 \end{block}
+These are much work on multi-path TCP including protocol design and congestion control. But the multi-path routing and scheduling (topology control) in flexible data centers has not been explored, especially on failures handling (including congestion control) and flexible switching.
 \end{frame}
 \end{document}
 
