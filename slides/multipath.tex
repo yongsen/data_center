@@ -278,14 +278,14 @@ Therefore, link failures (including network congestion) of multipath TCP have si
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Multi-path TCP in Data Centers}{Trade-off between reliability and utilization}
+\begin{frame}{Multipath TCP in Data Centers}{Trade-off between reliability and utilization}
 \begin{figure}[!t]
 \centering
     \includegraphics[width=0.8\textwidth]{multipath1.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Multi-path TCP in Data Centers}{Low reliability due to drops and retransmission}
+\begin{frame}{Multipath TCP in Data Centers}{Low reliability due to drops and retransmission}
 \begin{figure}[!t]
 \centering
     \includegraphics[width=0.8\textwidth]{multipath2.pdf}
@@ -306,7 +306,7 @@ Therefore, link failures (including network congestion) of multipath TCP have si
 \end{figure}
 \end{frame}
 
-\begin{frame}{Multi-path TCP and Failures handling}{Basic Procedures}
+\begin{frame}{Multipath TCP and Failures handling}{Basic Procedures}
 \begin{block}{Topology \& Congestion Control, Packet Scheduling \& Decoding}
 \begin{enumerate}
   \item Split flow(s) into subflows and push into backup pool
@@ -323,7 +323,7 @@ Therefore, link failures (including network congestion) of multipath TCP have si
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Multi-path TCP and Failures handling}{Adopted Technologies}
+\begin{frame}{Multipath TCP and Failures handling}{Adopted Technologies}
 \begin{block}{Failures handling technologies}
 \begin{itemize}
   \item \textbf{Flow backup} reduces the overhead of drops and retransmission: T(2,2) $\rightarrow$ T(1,1).
@@ -331,12 +331,12 @@ Therefore, link failures (including network congestion) of multipath TCP have si
 \end{itemize}
 \end{block}
 The above failures handling methods improve the decoding efficiency: after transmit $\rightarrow$ as transmitting.
-\begin{block}{Multi-path TCP technologies}
+\begin{block}{Multipath TCP technologies}
 \begin{itemize}
-  \item \textbf{Block ACK} reduces extra overhead: ACK/subflow $\rightarrow$ ACK/block
+  \item \textbf{Block ACK} reduces extra overhead: ACK/subflow $\rightarrow$ ACK/block, and gives state feedback for failure detection and path selection.
 \end{itemize}
 \end{block}
-These are much work on multi-path TCP including protocol design and congestion control. But the multi-path routing and scheduling (topology control) in flexible data centers has not been explored, especially on failures handling (including congestion control) and flexible switching.
+The multipath routing and scheduling of optical data centers have not been explored, especially on flexible switching (topology control) and failures handling (including congestion control).
 \end{frame}
 \end{document}
 
