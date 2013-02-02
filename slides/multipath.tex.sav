@@ -229,52 +229,36 @@
 \begin{block}{Multipath TCP and Optical Switching in Data Centers}
 Multipath TCP and optical switching are respectively explored recently. Both are emerging technologies and represent the future trend.
 \begin{itemize}
-  \item Multipath TCP provides tradeoff between reliability and utilization. But it requires additional modification of architecture and topology.
-  \item Optical Switching allows flexible strategies on topology control and demand response, which can get higher bandwidth and efficiency. But its reconfiguration delays will lead to high latency.
+  \item Multipath TCP provides tradeoff between reliability and utilization. But it introduces complexity to failures handling and congestion control.
+  \item Optical Switching allows flexible strategies on topology control and demand response, which can get higher bandwidth and efficiency. But it has high reconfiguration delays and limits its applications in all commercially available areas.
 \end{itemize}
-Benefits when multipath TCP and optical switching are combined:
+\end{block}
+\begin{block}{Combine multipath TCP and optical switching}
 \begin{itemize}
-  \item Optical switching enables multiplexing technology which provides preconditions of architecture and topology for multipath TCP.
-  \item Multipath TCP has lower flow completion time which reduces the adverse effect of high latency in optical switching.
+  \item multiplexing technology provides 
+  \item multipath reduces the latency 
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}{Challenges}
-In spite of all the benefits, both multipath TCP and optical switching will make it more complex and challenging for data center networking.
-
-\begin{block}{Topology: relay nodes, extra overhead, efficient throughput}
-\begin{itemize}
-  \item BCube and DCell need relay servers to support multipath, but it makes capacity scheduling more complicated.
-  \item In Fattree and VL2 that do not need relay nodes, multipath leads to extra overhead such as SYN and coding headers.
-  \item The extra overhead leads to the decrease of efficient throughput, though the flow completion time is reduced.
-\end{itemize}
+\begin{block}{Failures Handling}
 
 \end{block}
-
-\begin{block}{Failures Handling: performance, robustness, reliability}
-\begin{itemize}
-  \item When failures occur, the performance and robustness are reduced considering SYN\&coding headers and flow drops\&retransmission.
-  \item Failures in nodes (including servers and switches) and links result in poor reliability compared to single path forwarding.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}{Challenges}
 \begin{block}{Congestion Control}
-\begin{itemize}
-  \item Apart from node and link failures, network congestion occurs more frequently in multipath, especially when the traffic loads are heavy.
-\end{itemize}
+
 \end{block}
-\begin{block}{Resource Allocation}
-\begin{itemize}
-  \item Both multipath and flexible switching make it more complicated for data center networking, like addressing, routing, scheduling, etc.
-\end{itemize}
+\begin{block}{Capacity Scheduling}
+Both multipath TCP and optical switching 
 \end{block}
-Therefore, link failures (including network congestion) of multipath TCP have significant influence on the reliability and efficiency of optical data centers. The followings can be introduced to address these problems.
+
+\end{frame}
+
+\begin{frame}{Solutions}
 \begin{itemize}
-  \item Flow Backup: encoding, synchronization, retransmission
-  \item Block ACK: congestion control, failure detection, state feedback
+  \item Flow Backup
+  \item Block ACK
+  \item State Feedback
 \end{itemize}
 \end{frame}
 
